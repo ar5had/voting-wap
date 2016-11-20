@@ -7,14 +7,14 @@
    var profileRepos = document.querySelector('#profile-repos') || null;
    var displayName = document.querySelector('#display-name');
    var apiUrl = appUrl + '/api/:id';
-
+   console.log(profileId, profileRepos, profileUsername);
    function updateHtmlElement (data, element, userProperty) {
       element.innerHTML = data[userProperty];
    }
 
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
       var userObject = JSON.parse(data);
-
+      console.log(userObject);
       if (userObject.displayName !== null) {
          updateHtmlElement(userObject, displayName, 'displayName');
       } else {
