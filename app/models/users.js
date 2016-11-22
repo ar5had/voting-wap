@@ -6,13 +6,31 @@ var Schema = mongoose.Schema;
 var User = new Schema({
 	github: {
 		id: String,
-		displayName: String,
+		name: String,
 		username: String,
-      publicRepos: Number
+        publicRepos: Number
 	},
-   nbrClicks: {
+	google: {
+		id    : String,
+		name  : String,
+		token : String,
+        email : String
+	},
+	twitter: {
+		id       : String,
+		name     : String,
+		token    : String,
+        username : String
+	},
+	facebook: {
+		id    : String,
+		name  : String,
+		token : String,
+        email : String
+	},
+    nbrClicks: {
       clicks: Number
-   }
+    }
 });
 
 module.exports = mongoose.model('User', User);

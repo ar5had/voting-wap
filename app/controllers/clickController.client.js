@@ -1,5 +1,7 @@
 'use strict';
 
+// ajaxFunctions will be added via script tags
+
 (function () {
 
    var addButton = document.querySelector('.btn-add');
