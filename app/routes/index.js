@@ -15,6 +15,8 @@ module.exports = function (app, passport) {
 
 	var clickHandler = new ClickHandler();
 
+	app.set("view engine", "ejs");
+
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
 			res.sendFile(path + '/public/index.html');
