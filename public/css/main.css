@@ -202,3 +202,134 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+/*login.ejs styles*/
+
+* {
+	font-family: 'Roboto';
+	font-size: 16px;
+	color: #333;
+}
+
+body {
+	background: #fefefe;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 300;
+}
+
+.btnWrapper:first-child>.btnSubWrapper {
+	padding-top: 50px;
+}
+
+.btnWrapper:last-child>.btnSubWrapper {
+	padding-bottom: 50px;
+}
+
+.btnWrapper:nth-child(even)>.btnContent {
+	border-left: solid 6px #ccc;
+	transform: translateX(-3px);
+}
+
+.btnWrapper:nth-child(odd)>.btnContent {
+	border-right: solid 6px #ccc;
+	transform: translateX(3px);
+}
+
+.btnSubWrapper {
+	padding: 20px 0;
+}
+
+button {
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+	padding: 10px;
+	font-size: 14px;
+	min-width: 150px;
+	background: transparent;
+	border-radius: 30px;
+	border: none;
+	-webkit-transition: background-color 500ms ease-out 1s;
+	-moz-transition: background-color 100ms ease-in;
+	-o-transition: background-color 100ms ease-in;
+	transition: background-color 100ms ease-in;
+}
+
+button>i.fa {
+	color: #fff;
+}
+
+#fbBtn {
+	background: #3b5998;
+	text-align: left;
+	padding-left: 20px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#fbBtn>i.fa {
+	border-right: solid 1px;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+#twitterBtn {
+	background: #55ACEE;
+	text-align: right;
+	padding-right: 20px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+#twitterBtn>i.fa {
+	border-left: solid 1px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+#googleBtn {
+	background: #dd4b39;
+	text-align: left;
+	padding-left: 20px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#googleBtn>i.fa {
+	border-right: solid 1px;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+#githubBtn {
+	background: #3a3133;
+	text-align: right;
+	padding-right: 20px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+#githubBtn>i.fa {
+	border-left: solid 1px;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+#fbBtn:hover {
+	background: #2d4373;
+}
+
+#twitterBtn:hover {
+	background: #4d9ad4;
+}
+
+#googleBtn:hover {
+	background: #c23321;
+}
+
+#githubBtn:hover {
+	background: #332d2f;
+}
