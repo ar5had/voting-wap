@@ -219,20 +219,20 @@ h1, h2, h3, h4 {
 	font-weight: 300;
 }
 
-.btnWrapper:first-child>.btnSubWrapper {
-	padding-top: 50px;
+div.fbBtnWrapper>.btnSubWrapper {
+	padding-top: 40px;
 }
 
-.btnWrapper:last-child>.btnSubWrapper {
-	padding-bottom: 50px;
+div.githubBtnWrapper>.btnSubWrapper {
+	padding-bottom: 40px;
 }
 
-.btnWrapper:nth-child(even)>.btnContent {
+div.twitterBtnWrapper>.btnContent, div.githubBtnWrapper>.btnContent {
 	border-left: solid 6px #ccc;
 	transform: translateX(-3px);
 }
 
-.btnWrapper:nth-child(odd)>.btnContent {
+div.fbBtnWrapper>.btnContent, div.googleBtnWrapper>.btnContent {
 	border-right: solid 6px #ccc;
 	transform: translateX(3px);
 }
@@ -257,6 +257,12 @@ button {
 	-o-transition: background-color 100ms ease-in;
 	transition: background-color 100ms ease-in;
 }
+
+/* button:hover {
+	box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
+	-moz-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
+	-webkit-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
+} */
 
 button>i.fa {
 	color: #fff;
@@ -332,4 +338,14 @@ button>i.fa {
 
 #githubBtn:hover {
 	background: #332d2f;
+}
+
+.signinBlock {
+	margin-top: 40px;
+}
+
+.signinBlock:after {
+	clear: both;
+	content: "";
+	display: block;
 }
