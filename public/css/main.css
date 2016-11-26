@@ -7,9 +7,6 @@ body {
 	background: #f4f4f4;
 }
 
-
-/***** Sign In Block CSS *****/
-
 .boxWrapper {
 	overflow: hidden;
 	padding: 0 20px;
@@ -20,7 +17,7 @@ body {
 	max-width: 620px;
 	border: 1px solid #dbe2e8;
 	margin: 30px auto;
-	padding: 20px;
+	padding: 30px 20px;
 	background: #fefefe;
 }
 
@@ -43,6 +40,9 @@ p {
 	line-height: 1.4;
 }
 
+
+/***** Sign In Block CSS starts *****/
+
 p.description {
 	text-align: center;
 }
@@ -60,10 +60,10 @@ button {
 	border-radius: 5px;
 	color: #999;
 	border: solid 1px;
-	-webkit-transition: background-color 200ms ease-in;
-	-moz-transition: background-color 200ms ease-in;
-	-o-transition: background-color 200ms ease-in;
-	transition: background-color 200ms ease-in;
+	-webkit-transition: color 200ms ease-in;
+	-moz-transition: color 200ms ease-in;
+	-o-transition: color 200ms ease-in;
+	transition: color 200ms ease-in;
 	margin-bottom: 30px;
 	outline: none;
 }
@@ -93,7 +93,21 @@ button>i.fa {
 	color: #3a3133;
 }
 
-
 .signinBlock {
 	margin-top: 40px;
+}
+
+
+/***** Profile Block CSS starts *****/
+
+
+/***** Header CSS starts *****/
+
+.navIcons {
+	width: 30px;
+}
+
+#newIcon{
+	width: 30px;
+	padding: 2px;
 }

@@ -32,15 +32,16 @@ module.exports = function (passport) {
 					return done(err);
 				}
 
+                    console.log(profile);
 				if (user) {
 					return done(null, user);
 				} else {
 					var newUser = new User();
-
 					newUser.github.id          = profile.id;
 					newUser.github.username    = profile.username;
 					newUser.github.name = profile.displayName;
 					newUser.github.publicRepos = profile._json.public_repos;
+					newUser.github.dp = profile.avatar_url;
 					newUser.nbrClicks.clicks   = 0;
 
 					newUser.save(function (err) {
@@ -67,7 +68,7 @@ module.exports = function (passport) {
     function(token, tokenSecret, profile, done) {
 
         // make the code asynchronous
-    // User.findOne won't fire until we have all our data back from Twitter
+        // User.findOne won't fire until we have all our data back from Twitter
         process.nextTick(function() {
 
             User.findOne({ 'twitter.id' : profile.id }, function(err, user) {
@@ -76,20 +77,19 @@ module.exports = function (passport) {
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-
+console.log(profile);
                 // if the user is found then log them in
                 if (user) {
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user, create them
                     var newUser                 = new User();
-
                     // set all of the user data that we need
                     newUser.twitter.id          = profile.id;
                     newUser.twitter.token       = token;
                     newUser.twitter.username    = profile.username;
                     newUser.twitter.name = profile.displayName;
-
+                    newUser.twitter.dp = profile.photos[0].value;
                     // save our user into the database
                     newUser.save(function(err) {
                         if (err)
@@ -127,7 +127,7 @@ module.exports = function (passport) {
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-
+console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
                     return done(null, user); // user found, return that user
@@ -139,8 +139,8 @@ module.exports = function (passport) {
                     newUser.facebook.id    = profile.id; // set the users facebook id                   
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
                     newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-                    //newUser.facebook.email = profile.emails[0].value || "Email not added"; // facebook can return multiple emails so we'll take the first
-
+                    newUser.facebook.email = (profile.emails && profile.emails[0].value) || "Email not added"; // facebook can return multiple emails so we'll take the first
+                    newUser.facebook.dp = profile.image || undefined;    
                     // save our user to the database
                     newUser.save(function(err) {
                         if (err)
@@ -175,7 +175,7 @@ module.exports = function (passport) {
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
                     return done(err);
-
+console.log(profile);
                 if (user) {
 
                     // if a user is found, log them in
@@ -189,7 +189,7 @@ module.exports = function (passport) {
                     newUser.google.token = token;
                     newUser.google.name  = profile.displayName;
                     newUser.google.email = profile.emails[0].value; // pull the first email
-
+                    newUser.twitter.dp = profile.photos[0].value;
                     // save the user
                     newUser.save(function(err) {
                         if (err)

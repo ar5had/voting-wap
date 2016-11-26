@@ -52,7 +52,7 @@ module.exports = function (app, passport) {
 
 	app.route('/auth/github/callback')
 		.get(passport.authenticate('github', {
-			successRedirect: '/',
+			successRedirect: '/profile',
 			failureRedirect: '/login'
 		}));
 		
@@ -63,7 +63,7 @@ module.exports = function (app, passport) {
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
             successRedirect : '/profile',
-            failureRedirect : '/'
+            failureRedirect : '/login'
         }));
         
     // route for twitter authentication and login    
@@ -73,7 +73,7 @@ module.exports = function (app, passport) {
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
             successRedirect : '/profile',
-            failureRedirect : '/'
+            failureRedirect : '/login'
         }));
 	
 	// route for google authentication and login        
@@ -83,7 +83,7 @@ module.exports = function (app, passport) {
     app.get('/auth/google/callback',
             passport.authenticate('google', {
                     successRedirect : '/profile',
-                    failureRedirect : '/'
+                    failureRedirect : '/login'
             }));
 
 	app.route('/api/:id/clicks')
