@@ -1,244 +1,50 @@
-/********* Fonts **********/
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
-}
-
-/****** Main Styling ******/
-
-body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	margin: 0;
-	padding: 0;
-}
-
-header {
-	color: #00BCD4;
-	height: 56px;
-	margin: 0 0 14px 0;
-	text-align: center;
-}
-
-p {
-	margin: 8px 0 0 0;
-}
-
-.container p {
-	text-align: center;
-	padding: 0;
-}
-
-/****** Header Styling ******/
-
-header p {
-	margin: 16px 0 5px 0;
-}
-
-.menu {
-	text-decoration: none;
-	padding: 6px;
-	margin: 0;
-	color: #727272;
-}
-
-.menu:visited {
-	color: #727272;
-}
-
-.menu:hover {
-	color: #FFA000;
-}
-
-.menu:active {
-	color: #FF630D;
-}
-
-header a ~ p {
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: #ECEFF1;
-}
-
-#display-name {
-	font-weight: 400;
-}
-
-/****** Login Styling ******/
-
-.login {
-	margin: 86px auto 0 auto;
-	text-align: center;
-}
-
-#login-btn {
-	width: 225px;
-	padding: 7px 5px;
-}
-
-.btn p {
-	margin: 8px 0 0 0;
-	padding: 0;
-}
-
-.btn > img {
-	float: left;
-	margin-left: 10px
-}
-
-/****** Logo Div Styling ******/
-
-img {
-	margin: 0 auto;
-	display: block;
-}
-
-.clementine-text { /* Styling for the Clementine.js text */
-	padding: 0;
-	margin: -25px 0 0 0;
-	font-weight: 500;
-	font-size: 60px;
-	color: #FFA000;
-}
-
-/****** Click Styling ******/
-
-.btn-container {	/* Styling for the div that contains the buttons */
-	margin: -10px auto 0 auto;
-	text-align: center;
-}
-
-.btn {	/* Styling for buttons */
-	margin: 0 8px;
-	color: white;
-	background-color: #00BCD4;
-	display: inline-block;
-	border: 0;
-	font-size: 14px;
-	border-radius: 3px;
-	padding: 10px 5px;
-	width: 100px;
-	font-weight: 500;
-}
-
-.btn:focus {	/* Remove outline when hovering over button */
-	outline: none;
-}
-
-.btn:active {	/* Scale the button down by 10% when clicking on button */
-	transform: scale(0.9, 0.9);
-	-webkit-transform: scale(0.9, 0.9);
-	-moz-transform: scale(0.9, 0.9);
-}
-
-.btn-delete {	/* Styling for delete button */
-	background-color: #ECEFF1;
-	color: #212121;
-}
-
-#click-nbr {
-	font-weight: 400;
-}
-
-/****** Profile Styling ******/
-
-.github-profile {
-	width: 350px;
-	height: 200px;
-	border-radius: 3px;
-	margin: 86px auto 0 auto;
-	background-color: #EEE;
-	text-align: center;
-	color: #000;
-}
-
-.github-profile p:first-child {
-	padding-top: 16px;
-}
-
-.github-profile p:nth-child(5) {
-	margin-bottom: 16px
-}
-
-.github-profile p {
-	margin: 0 0 0 16px;
-	text-align: left;
-}
-
-.profile-value {
-	font-weight: 400;
-}
-
-span {
-	font-weight: 500;
-}
-
-.github-profile > img {
-	padding-top: 16px;
-	margin-bottom: 16px;
-}
-
-.github-profile .menu:hover {
-	color: #FFA000;
-}
-
-.github-profile .menu:active {
-	color: #FF630D;
-}
-
-#menu-divide {
-	color: #FFFFFF;
-	display: inline;
-	margin: 0;
-}
-
-/*login.ejs styles*/
-
 * {
-	font-family: 'Roboto';
 	font-size: 16px;
-	color: #333;
+	color: #2e3d49;
 }
 
 body {
+	background: #f4f4f4;
+}
+
+
+/***** Sign In Block CSS *****/
+
+.boxWrapper {
+	overflow: hidden;
+	padding: 0 20px;
+}
+
+.box {
+	box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+	max-width: 620px;
+	border: 1px solid #dbe2e8;
+	margin: 30px auto;
+	padding: 20px;
 	background: #fefefe;
 }
 
+.box > .col-xs-12 {
+	padding: 0;
+}
+
 h1, h2, h3, h4 {
+	font-family: 'Roboto';
 	font-weight: 300;
+	margin-bottom: 30px;
+	line-height: 1.3;
 }
 
-div.fbBtnWrapper>.btnSubWrapper {
-	padding-top: 40px;
+p {
+	color: #333;
+	font-family: 'Source Sans Pro';
+	font-weight: 300;
+	font-size: 17px;
+	line-height: 1.4;
 }
 
-div.githubBtnWrapper>.btnSubWrapper {
-	padding-bottom: 40px;
-}
-
-div.twitterBtnWrapper>.btnContent, div.githubBtnWrapper>.btnContent {
-	border-left: solid 6px #ccc;
-	transform: translateX(-3px);
-}
-
-div.fbBtnWrapper>.btnContent, div.googleBtnWrapper>.btnContent {
-	border-right: solid 6px #ccc;
-	transform: translateX(3px);
-}
-
-.btnSubWrapper {
-	padding: 20px 0;
+p.description {
+	text-align: center;
 }
 
 button {
@@ -248,104 +54,46 @@ button {
 	font-weight: 400;
 	padding: 10px;
 	font-size: 14px;
-	min-width: 150px;
+	width: 100%;
+	max-width: 340px;
 	background: transparent;
-	border-radius: 30px;
-	border: none;
-	-webkit-transition: background-color 500ms ease-out 1s;
-	-moz-transition: background-color 100ms ease-in;
-	-o-transition: background-color 100ms ease-in;
-	transition: background-color 100ms ease-in;
+	border-radius: 5px;
+	color: #999;
+	border: solid 1px;
+	-webkit-transition: background-color 200ms ease-in;
+	-moz-transition: background-color 200ms ease-in;
+	-o-transition: background-color 200ms ease-in;
+	transition: background-color 200ms ease-in;
+	margin-bottom: 30px;
+	outline: none;
 }
 
-/* button:hover {
-	box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
-	-moz-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
-	-webkit-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
-} */
+button:active, button:focus {
+	outline: none;
+}
 
 button>i.fa {
-	color: #fff;
-}
-
-#fbBtn {
-	background: #3b5998;
-	text-align: left;
-	padding-left: 20px;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-
-#fbBtn>i.fa {
-	border-right: solid 1px;
-	margin-right: 10px;
-	padding-right: 10px;
-}
-
-#twitterBtn {
-	background: #55ACEE;
-	text-align: right;
-	padding-right: 20px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
-#twitterBtn>i.fa {
-	border-left: solid 1px;
-	margin-left: 10px;
-	padding-left: 10px;
-}
-
-#googleBtn {
-	background: #dd4b39;
-	text-align: left;
-	padding-left: 20px;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-
-#googleBtn>i.fa {
-	border-right: solid 1px;
-	margin-right: 10px;
-	padding-right: 10px;
-}
-
-#githubBtn {
-	background: #3a3133;
-	text-align: right;
-	padding-right: 20px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
-#githubBtn>i.fa {
-	border-left: solid 1px;
-	margin-left: 10px;
-	padding-left: 10px;
+	color: inherit;
+	margin-right: 25px;
 }
 
 #fbBtn:hover {
-	background: #2d4373;
+	color: #3b5998;
 }
 
 #twitterBtn:hover {
-	background: #4d9ad4;
+	color: #55ACEE;
 }
 
 #googleBtn:hover {
-	background: #c23321;
+	color: #dd4b39;
 }
 
 #githubBtn:hover {
-	background: #332d2f;
+	color: #3a3133;
 }
+
 
 .signinBlock {
 	margin-top: 40px;
-}
-
-.signinBlock:after {
-	clear: both;
-	content: "";
-	display: block;
 }
