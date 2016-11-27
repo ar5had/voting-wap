@@ -18,7 +18,7 @@ module.exports = function (app, passport) {
 	app.set("view engine", "ejs");
 
 	app.route('/')
-		.get(isLoggedIn, function (req, res) {
+		.get(function (req, res) {
 			res.render("./pages/index", {
 				pageTitle : "Home"
 			});
@@ -34,12 +34,14 @@ module.exports = function (app, passport) {
 	app.route('/logout')
 		.get(function (req, res) {
 			req.logout();
-			res.redirect('/login');
+			res.redirect('/');
 		});
 
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/profile.html');
+			res.render("./pages/profile", {
+				pageTitle : "Profile"
+			});
 		});
 
 	app.route('/api/:id')
@@ -52,7 +54,7 @@ module.exports = function (app, passport) {
 
 	app.route('/auth/github/callback')
 		.get(passport.authenticate('github', {
-			successRedirect: '/profile',
+			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
 		
@@ -62,7 +64,7 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/profile',
+            successRedirect : '/',
             failureRedirect : '/login'
         }));
         
@@ -72,7 +74,7 @@ module.exports = function (app, passport) {
     // handle the callback after twitter has authenticated the user
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
-            successRedirect : '/profile',
+            successRedirect : '/',
             failureRedirect : '/login'
         }));
 	
@@ -82,7 +84,7 @@ module.exports = function (app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/profile',
+                    successRedirect : '/',
                     failureRedirect : '/login'
             }));
 

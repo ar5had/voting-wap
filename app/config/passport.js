@@ -31,8 +31,6 @@ module.exports = function (passport) {
 				if (err) {
 					return done(err);
 				}
-
-                    console.log(profile);
 				if (user) {
 					return done(null, user);
 				} else {
@@ -77,7 +75,6 @@ module.exports = function (passport) {
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-console.log(profile);
                 // if the user is found then log them in
                 if (user) {
                     return done(null, user); // user found, return that user
@@ -127,7 +124,6 @@ console.log(profile);
                 // ie an error connecting to the database
                 if (err)
                     return done(err);
-console.log(profile);
                 // if the user is found, then log them in
                 if (user) {
                     return done(null, user); // user found, return that user
@@ -175,7 +171,6 @@ console.log(profile);
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
                     return done(err);
-console.log(profile);
                 if (user) {
 
                     // if a user is found, log them in
