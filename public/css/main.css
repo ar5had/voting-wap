@@ -21,7 +21,7 @@ body {
 	background: #fefefe;
 }
 
-.box > .col-xs-12 {
+.box .col-xs-12 {
 	padding: 0;
 }
 
@@ -187,9 +187,9 @@ button>i.fa {
 
 .post {
 	max-width: 860px;
-	box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
-	-moz-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
-	-webkit-box-shadow: 0 .3125em 1.25em 0 rgba(46,61,73,.12);
+	box-shadow:  2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-moz-box-shadow:  2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-webkit-box-shadow:  2px 2px 3px 0 hsla(205,5%,48%,.12);
 	-webkit-transition: box-shadow 200ms ease-in;
 	-moz-transition: box-shadow 200ms ease-in;
 	-o-transition: box-shadow 200ms ease-in;
@@ -230,6 +230,7 @@ button>i.fa {
 	padding: 7px;
 	margin: 0;
 	border-color: #ccc;
+	cursor: auto;
 }
 
 /***** Footer styling starts here *****/
@@ -273,8 +274,12 @@ a {
 	border: none;
 } 
 
-.submitBtn, .shareBtn {
+.submitBtn {
 	margin-bottom: 20px;
+}
+
+.shareBtn {
+	margin-bottom: 0;
 }
 
 .submitBtn:hover {
@@ -315,7 +320,7 @@ select {
 	-moz-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
 	-webkit-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
 	border: solid 1px #ccc;
-	padding: 10px 17px 10px 10px;
+	padding: 10px 20px 10px 10px;
 	margin-bottom: 20px;
 	color: #999;
 	-webkit-transition: box-shadow 200ms ease-in;
@@ -334,7 +339,7 @@ select {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
 	background: rgba(239, 239, 239, .2);
-   border: solid 1px #ddd;
+    border: solid 1px #ddd;
 }
 
 select:focus, select:hover {
