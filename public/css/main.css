@@ -366,6 +366,57 @@ option[disabled=true] {
 	color: #bbb;
 }
 
+/***** Tooltip css *****/
+
+#tooltip {
+    text-align: center;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    z-index: 10000;
+    padding: 5px;
+	border-radius: 4px;
+	-webkit-transition: 100ms ease 400ms;
+	-moz-transition: 100ms ease 400ms;
+	-o-transition: 100ms ease 400ms;
+	-ms-transition: 100ms ease 400ms;
+	transition: 100ms ease 400ms;
+	font-size: 11px;
+}
+
+#tooltip::after {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid rgba(0, 0, 0, 0.8);
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -9px;
+	margin-left: -5px;
+}
+
+#tooltip.top::after {
+    border-top-color: transparent;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+    top: -10px;
+    bottom: auto;
+}
+
+#tooltip.left::after {
+    left: 10px;
+    margin: 0;
+}
+
+#tooltip.right:after {
+    right: 10px;
+    left: auto;
+    margin: 0;
+}
+
+
 /***** Media querries *****/
 
 @media screen and (max-width: 450px) {
