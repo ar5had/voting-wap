@@ -13,4 +13,23 @@
 		</div>
 	</div>
 </div>
+<script>
+	var menuIcon = document.querySelector("#menuIcon"),
+		sidebar = document.querySelector(".sidebarWrapper");
+	menuIcon.addEventListener("click", function(e) {
+		if (!e) var e = window.event
+    		e.cancelBubble = true;
+    	if (e.stopPropagation) 
+    		e.stopPropagation()
+		sidebar.classList.toggle("open");
+		menuIcon.classList.toggle("open");
+	});
+	
+	window.addEventListener("click", function(){
+    	if (sidebar.classList.contains("open") && (window.innerWidth > 960)) {
+    		menuIcon.classList.remove("open");
+    		sidebar.classList.remove("open");
+    	}
+	});
+</script>
 <script src="/common/tooltip.js"></script>

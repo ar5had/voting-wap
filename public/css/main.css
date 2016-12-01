@@ -7,6 +7,11 @@ body {
 	background: #f4f4f4;
 }
 
+.indexMain {
+	margin: auto;
+	max-width: 880px;
+}
+
 .boxWrapper {
 	overflow: hidden;
 	padding: 40px 20px 0 20px;
@@ -34,6 +39,8 @@ a, a:active, a:hover {
 
 .box {
 	box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-moz-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-webkit-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
 	border: 1px solid #dbe2e8;
 	margin: 0 auto 40px auto;
 	padding: 20px;
@@ -156,7 +163,9 @@ button>i.fa {
 	border-radius: 50%;
 	box-sizing: content-box;
 	border: solid 4px #fefefe;
-	box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.42);
+	box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.32);
+	-moz-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.32);
+	-webkit-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.32);
 }
 
 .deleteAccBtn {
@@ -184,7 +193,10 @@ button>i.fa {
 	padding: 20px;
 	background: #fefefe;
 	box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-moz-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+	-webkit-box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
 	border-bottom: 1px solid #dbe2e8;
+	position: relative;
 }
 
 .header > .container {
@@ -214,6 +226,24 @@ button>i.fa {
 #newIcon{
 	width: 30px;
 	padding: 2px;
+}
+
+
+a:active, a:hover {
+	text-decoration: none;
+}
+
+#menuIcon {
+	cursor: pointer;
+	-webkit-transition: 100ms all ease;
+	-moz-transition: 100ms all ease;
+	-o-transition: 100ms all ease;
+	-ms-transition: 100ms all ease;
+	transition: 100ms all ease;
+}
+
+#menuIcon.open {
+	transform: rotate(90deg);
 }
 
 /***** Poll post styling starts here *****/
@@ -543,7 +573,139 @@ input:hover, input:active {
 	box-shadow: none;
 }
 
+/***** Sidebar styling starts here *****/
+
+.sidebarWrapper {
+	position: absolute;
+	top: 65px; 
+	left: 50%;
+	z-index: 999;
+	display: none;
+	opacity: 0;
+	transform: translateX(-460px);
+}
+
+.sidebar {
+	max-width: 300px; 
+	position: relative;
+	padding: 5px 0 !important;
+	border: solid 1px #dbe2e8;
+	background: #fefefe;
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.sidebar::before {
+	z-index: 10;
+	content: '';
+	position: absolute;
+	border-color: transparent transparent #fefefe;
+   border-style: solid;
+   border-width: 0 10px 10px;
+	top: -10px;
+	left: 10px;
+}
+/* box-shadow for sidebar caret */
+.sidebar::after {
+	z-index: -1;
+	position:absolute;
+	content: '';
+	 background: #fff;
+    border: 1px solid #efefef;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    height: 14px;
+    left: 15px;
+    top: 10px;
+    /* -webkit-transform: rotate(45deg); */
+    transform: rotate(45deg);
+    width: 14px;
+	top: -7px;
+	left: 12px;
+}
+
+.borderWrapper {
+	padding: 0 20px;
+}
+
+.borderElem {
+	margin: 5px auto;
+	border-bottom: solid 1px #ccc;
+}
+
+.sLinks {
+	padding: 10px 20px !important;
+}
+
+.sLinks{
+	font-size: 14px;
+	font-family: "Source Sans Pro";
+	color: #666;
+	text-decoration: none;
+	-webkit-transition: 100ms all ease;
+	-moz-transition: 100ms all ease;
+	-o-transition: 100ms all ease;
+	-ms-transition: 100ms all ease;
+	transition: 100ms all ease;
+}
+
+.sLinks:hover, .sLinks:active {
+	color: #222;
+	background: #f4f4f4;
+}
+
+.sidebarWrapper.open {
+	display: block;
+	opacity: 1;
+}
+
 /***** Media querries *****/
+
+@media screen and (max-width : 768px) {
+	.vleft {
+		padding-right: 0;
+	}
+	
+	.vleft > .box {
+		margin-bottom: 20px;
+	}
+	
+	.vright {
+		padding-top: 0;
+		padding-left: 0;
+	}
+}
+
+@media screen and (max-width : 960px) {
+	.sidebar {
+		max-width: none;
+		width: 100%;
+		box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
+		-moz-box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
+		-webkit-box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
+		border-right: none;
+		border-left: none;
+	}
+	
+	.sidebar::after, .sidebar::before {
+		display: none;
+	}
+	
+	.sidebarWrapper {
+		left: 0;
+		top: 70px;
+		width: 100%;
+		transform: none;
+	}
+	
+	.sLinks{
+		font-size: 16px;
+	}
+	
+}
+
 
 @media screen and (max-width: 450px) {
 	
@@ -578,19 +740,14 @@ input:hover, input:active {
 	#logo p, #logo span {
 		font-size: 20px;
 	}
-}
-
-@media screen and (max-width : 768px) {
-	.vleft {
-		padding-right: 0;
+	
+	.sidebarWrapper {
+		left: 0;
+		top: 60px;
 	}
 	
-	.vleft > .box {
-		margin-bottom: 20px;
-	}
 	
-	.vright {
-		padding-top: 0;
-		padding-left: 0;
+	.sLinks{
+		font-size: 14px;
 	}
 }
