@@ -14,12 +14,10 @@ function getOffset(element) {
 }
 
 var targets = document.querySelectorAll( '[rel=tooltip]' ),
-    target  = false,
     tooltip = false,
-    title   = false,
     tip     = false;
 
-Array.from(targets).forEach((target)=>{
+Array.from(targets).forEach(function(target){
   target.addEventListener("mouseenter", function() {
 
     tip     = target.getAttribute("title");

@@ -43,6 +43,13 @@ module.exports = function (app, passport) {
 				pageTitle : "Profile"
 			});
 		});
+		
+	app.route('/poll')
+		.get(isLoggedIn, function (req, res) {
+			res.render("./pages/poll", {
+				pageTitle : "Poll"
+			});
+		});
 
 	app.route('/api/:id')
 		.get(isLoggedIn, function (req, res) {

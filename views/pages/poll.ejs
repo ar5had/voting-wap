@@ -7,9 +7,15 @@
             <% include ../partials/header %>
         </header>
         <main>
+            <div class="pollContainer container-fluid">
+                <% include ../partials/pollInfo %>
+                <% include ../partials/userControls %>
+            </div>
         </main>
         <footer>
             <% include ../partials/footer %>
         </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+        <script src="/common/bundle.js"></script>
     </body>
 </html>
