@@ -19,11 +19,10 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(function (req, res) {
-			console.log(req.user);
 			res.render("./pages/index", {
 				pageTitle : "Home",
 				userLoggedIn: req.isAuthenticated(),
-				name: req.user.name
+				name: (req.user && req.user.name) || "" 
 			});
 		});
 
