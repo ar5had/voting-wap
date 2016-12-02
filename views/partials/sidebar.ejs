@@ -11,11 +11,14 @@
             </div>
         </a>
         <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
-        <a href="/login" class="loginLink">
-            <div class="sLinks col-xs-12">
-                Log In
-            </div>
-        </a>
+        
+        <%if (userLoggedIn) { %>
+            <a href="/login" class="loginLink">
+                <div class="sLinks col-xs-12">
+                    Log In
+                </div>
+            </a>
+        <% } %>
         
         <%if (userLoggedIn) { %>
             <a href="/profile" class="profileLink">
