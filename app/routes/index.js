@@ -47,6 +47,14 @@ module.exports = function (app, passport) {
 			});
 		});
 		
+	app.route('/my-polls')
+		.get(isLoggedIn, function (req, res) {
+			res.render("./pages/myPolls", {
+				pageTitle : "My Polls",
+				userLoggedIn: req.isAuthenticated()
+			});
+		});
+		
 	app.route('/poll')
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/poll", {
