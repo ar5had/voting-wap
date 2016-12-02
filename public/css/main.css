@@ -3,6 +3,16 @@
 	color: #2e3d49;
 }
 
+#hideAll{
+   position: fixed;
+   left: 0px; 
+   right: 0px; 
+   top: 0px; 
+   bottom: 0px; 
+   background-color: #fefefe;
+   z-index: 99;
+}
+
 body {
 	background: #f4f4f4;
 }
@@ -235,11 +245,11 @@ a:active, a:hover {
 
 #menuIcon {
 	cursor: pointer;
-	-webkit-transition: 100ms all ease;
-	-moz-transition: 100ms all ease;
-	-o-transition: 100ms all ease;
-	-ms-transition: 100ms all ease;
-	transition: 100ms all ease;
+	-webkit-transition: 200ms all ease;
+	-moz-transition: 200ms all ease;
+	-o-transition: 200ms all ease;
+	-ms-transition: 200ms all ease;
+	transition: 200ms all ease;
 }
 
 #menuIcon.open {
@@ -583,6 +593,10 @@ input:hover, input:active {
 	display: none;
 	opacity: 0;
 	transform: translateX(-460px);
+	-webkit-transition: 170ms all ease;
+	-moz-transition: 170ms all ease;
+	-o-transition: 170ms all ease;
+	-ms-transition: 170ms all ease;
 }
 
 .sidebar {
@@ -606,7 +620,9 @@ input:hover, input:active {
 	top: -10px;
 	left: 10px;
 }
+
 /* box-shadow for sidebar caret */
+
 .sidebar::after {
 	z-index: -1;
 	position:absolute;
@@ -658,6 +674,9 @@ input:hover, input:active {
 
 .sidebarWrapper.open {
 	display: block;
+}
+
+.sidebarWrapper.visible {
 	opacity: 1;
 }
 
