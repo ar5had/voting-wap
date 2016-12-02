@@ -304,7 +304,7 @@ a:active, a:hover {
 	padding: 7px;
 	margin: 0;
 	border-color: #ccc;
-	cursor: auto;
+	cursor: inherit;
 }
 
 /***** Footer styling starts here *****/
