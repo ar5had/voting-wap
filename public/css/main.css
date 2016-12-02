@@ -22,6 +22,29 @@ main {
 	max-width: 880px;
 }
 
+img.errorImg {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.credit{
+	font-family: 'Source Sans Pro';
+	color: #666;
+	font-size: 15px;
+}
+
+.credit a{
+	color: #7d97ad;
+	cursor: pointer;
+}
+
+.credit a:hover {
+	color: #111;
+}
+
 .boxWrapper {
 	overflow: hidden;
 	padding: 40px 20px 0 20px;
@@ -158,7 +181,6 @@ button>i.fa {
 .signinBlock {
 	margin-top: 40px;
 }
-
 
 /***** Profile Block CSS starts *****/
 
@@ -360,18 +382,6 @@ a {
 	background: #5cb75c;
 }
 
-.fbBtn:hover {
-	color: #3b5998;
-}
-
-.twitterBtn:hover {
-	color: #55ACEE;
-}
-
-.googleBtn:hover {
-	color: #dd4b39;
-}
-
 .selectWrapper {
 	max-width: 340px;
 	margin: auto;
@@ -564,9 +574,6 @@ input {
 	max-width: 340px;
 	padding: 10px 10px;
 	font-family: "Source Sans Pro";
-	box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
-	-moz-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
-	-webkit-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
 	border: solid 1px #ccc;
 	color: #999;
 	-webkit-transition: box-shadow 200ms ease-in;
@@ -576,11 +583,7 @@ input {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
 	background: #fefefe;
-	outline: none;
-}
-
-input:hover, input:active {
-	box-shadow: none;
+	outline-color: #9E9E9E;
 }
 
 /***** Sidebar styling starts here *****/
@@ -747,7 +750,7 @@ input:hover, input:active {
 		font-size: 12px;
 	}
 	
-	.footer>p, .footer a {
+	.footer>p, .footer a, .credit, .credit a{
 		font-size: 14px;
 	}
 	

@@ -1,36 +1,39 @@
 <div class="sidebarWrapper">
     <div class="col-xs-12 sidebar">
-        <a href="" class="allPolls">
+        <a href="/" class="allPolls">
             <div class="sLinks col-xs-12">
                 All Polls
             </div>
         </a>
-        <a href="" class="createPollNav">
+        <a href="/create-poll" class="createPollNav">
             <div class="sLinks col-xs-12">
                 Create Poll
             </div>
         </a>
         <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
-        <a href="" class="loginLink">
+        <a href="/login" class="loginLink">
             <div class="sLinks col-xs-12">
                 Log In
             </div>
         </a>
-        <a href="" class="profileLink">
-            <div class="sLinks col-xs-12">
-                Profile
-            </div>
-        </a>
-        <a href="" class="myPolls">
-            <div class="sLinks col-xs-12">
-                My Polls
-            </div>
-        </a>
-        <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
-        <a href="" class="logoutLink">
-            <div class="sLinks col-xs-12">
-                Log Out
-            </div>
-        </a>
+        
+        <%if (userLoggedIn) { %>
+            <a href="" class="profileLink">
+                <div class="sLinks col-xs-12">
+                    Profile
+                </div>
+            </a>
+            <a href="" class="myPolls">
+                <div class="sLinks col-xs-12">
+                    My Polls
+                </div>
+            </a>
+            <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
+            <a href="" class="logoutLink">
+                <div class="sLinks col-xs-12">
+                    Log Out
+                </div>
+            </a>
+        <% } %>
     </div>
 </div>

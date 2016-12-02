@@ -20,14 +20,16 @@ module.exports = function (app, passport) {
 	app.route('/')
 		.get(function (req, res) {
 			res.render("./pages/index", {
-				pageTitle : "Home"
+				pageTitle : "Home",
+				userLoggedIn: req.isAuthenticated()
 			});
 		});
 
 	app.route('/login')
 		.get(function (req, res) {
 			res.render("./pages/login", {
-				pageTitle : "Login"
+				pageTitle : "Login",
+				userLoggedIn: req.isAuthenticated()
 			});
 		});
 
@@ -40,17 +42,36 @@ module.exports = function (app, passport) {
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/profile", {
-				pageTitle : "Profile"
+				pageTitle : "Profile",
+				userLoggedIn: req.isAuthenticated()
 			});
 		});
 		
 	app.route('/poll')
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/poll", {
-				pageTitle : "Poll"
+				pageTitle : "Poll",
+				userLoggedIn: req.isAuthenticated()
+			});
+		});
+	
+	app.route('/credits')
+		.get(function (req, res) {
+			res.render("./pages/credits", {
+				pageTitle : "Credits",
+				userLoggedIn: req.isAuthenticated()
+			});
+		});
+	
+	app.route('/create-poll')
+		.get(isLoggedIn, function (req, res) {
+			res.render("./pages/createPoll", {
+				pageTitle : "Create new poll",
+				userLoggedIn: req.isAuthenticated()
 			});
 		});
 
+	
 	app.route('/api/:id')
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
@@ -99,4 +120,11 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
+		
+	app.get("/*", function(req, res) {
+		res.render("./pages/error", { 
+			pageTitle: "404 - Page Not Found"
+		});	
+	});
+	
 };
