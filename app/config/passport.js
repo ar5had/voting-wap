@@ -37,10 +37,9 @@ module.exports = function (passport) {
 					var newUser = new User();
 					newUser.github.id          = profile.id;
 					newUser.github.username    = profile.username;
-					newUser.github.name = profile.displayName;
+					newUser.name = profile.displayName;
 					newUser.github.publicRepos = profile._json.public_repos;
-					newUser.github.dp = profile.avatar_url;
-					newUser.nbrClicks.clicks   = 0;
+					newUser.dp = profile.avatar_url;
 
 					newUser.save(function (err) {
 						if (err) {
@@ -85,8 +84,8 @@ module.exports = function (passport) {
                     newUser.twitter.id          = profile.id;
                     newUser.twitter.token       = token;
                     newUser.twitter.username    = profile.username;
-                    newUser.twitter.name = profile.displayName;
-                    newUser.twitter.dp = profile.photos[0].value;
+                    newUser.name = profile.displayName;
+                    newUser.dp = profile.photos[0].value;
                     // save our user into the database
                     newUser.save(function(err) {
                         if (err)
@@ -134,9 +133,9 @@ module.exports = function (passport) {
                     // set all of the facebook information in our user model
                     newUser.facebook.id    = profile.id; // set the users facebook id                   
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
-                    newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                    newUser.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
                     newUser.facebook.email = (profile.emails && profile.emails[0].value) || "Email not added"; // facebook can return multiple emails so we'll take the first
-                    newUser.facebook.dp = profile.image || undefined;    
+                    newUser.dp = profile.image || undefined;    
                     // save our user to the database
                     newUser.save(function(err) {
                         if (err)
@@ -182,9 +181,9 @@ module.exports = function (passport) {
                     // set all of the relevant information
                     newUser.google.id    = profile.id;
                     newUser.google.token = token;
-                    newUser.google.name  = profile.displayName;
+                    newUser.name  = profile.displayName;
                     newUser.google.email = profile.emails[0].value; // pull the first email
-                    newUser.twitter.dp = profile.photos[0].value;
+                    newUser.dp = profile.photos[0].value;
                     // save the user
                     newUser.save(function(err) {
                         if (err)
