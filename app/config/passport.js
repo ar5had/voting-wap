@@ -129,7 +129,7 @@ module.exports = function (passport) {
                 } else {
                     // if there is no user found with that facebook id, create them
                     var newUser            = new User();
-
+                    console.log(profile);
                     // set all of the facebook information in our user model
                     newUser.facebook.id    = profile.id; // set the users facebook id                   
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
