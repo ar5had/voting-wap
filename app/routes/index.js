@@ -22,7 +22,8 @@ module.exports = function (app, passport) {
 			console.log(req.user);
 			res.render("./pages/index", {
 				pageTitle : "Home",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 
@@ -30,7 +31,8 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			res.render("./pages/login", {
 				pageTitle : "Login",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 
@@ -44,7 +46,8 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/profile", {
 				pageTitle : "Profile",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 		
@@ -52,7 +55,8 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/myPolls", {
 				pageTitle : "My Polls",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 		
@@ -60,7 +64,8 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/poll", {
 				pageTitle : "Poll",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 	
@@ -68,7 +73,8 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			res.render("./pages/credits", {
 				pageTitle : "Credits",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
 		});
 	
@@ -76,14 +82,9 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/createPoll", {
 				pageTitle : "Create new poll",
-				userLoggedIn: req.isAuthenticated()
+				userLoggedIn: req.isAuthenticated(),
+				name: req.user.name
 			});
-		});
-
-	
-	app.route('/api/:id')
-		.get(isLoggedIn, function (req, res) {
-			res.json(req.user.github);
 		});
 
 	app.route('/auth/github')
@@ -125,10 +126,10 @@ module.exports = function (app, passport) {
                     failureRedirect : '/login'
             }));
 
-	app.route('/api/:id/clicks')
-		.get(isLoggedIn, clickHandler.getClicks)
-		.post(isLoggedIn, clickHandler.addClick)
-		.delete(isLoggedIn, clickHandler.resetClicks);
+	// app.route('/api/:id/clicks')
+	// 	.get(isLoggedIn, clickHandler.getClicks)
+	// 	.post(isLoggedIn, clickHandler.addClick)
+	// 	.delete(isLoggedIn, clickHandler.resetClicks);
 		
 	app.get("/*", function(req, res) {
 		res.render("./pages/error", { 

@@ -4,37 +4,28 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
+	name : String,
+	dp   : String,
 	github: {
 		id          : String,
-		name        : String,
 		username    : String,
-    publicRepos : Number,
-    dp          : String
+    publicRepos : Number
 	},
 	google: {
 		id    : String,
-		name  : String,
 		token : String,
-    email : String,
-    dp    : String
+    email : String
 	},
 	twitter: {
 		id       : String,
-		name     : String,
 		token    : String,
-    username : String,
-    dp       : String
+    username : String
 	},
 	facebook: {
 		id    : String,
-		name  : String,
 		token : String,
-    email : String,
-    dp    : String
-	},
-    nbrClicks: {
-      clicks: Number
-    }
+    email : String
+	}
 });
 
 module.exports = mongoose.model('User', User);
