@@ -23,7 +23,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/index", {
 				pageTitle : "Home",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || "" 
+				name: (req.user && ("- " + req.user.name.toString())) || "" 
 			});
 		});
 
@@ -32,7 +32,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/login", {
 				pageTitle : "Login",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 
@@ -41,7 +41,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/profile", {
 				pageTitle : "Profile",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 		
@@ -50,7 +50,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/myPolls", {
 				pageTitle : "My Polls",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 		
@@ -59,7 +59,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/poll", {
 				pageTitle : "Poll",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 	
@@ -68,7 +68,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/credits", {
 				pageTitle : "Credits",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 	
@@ -77,7 +77,7 @@ module.exports = function (app, passport) {
 			res.render("./pages/createPoll", {
 				pageTitle : "Create new poll",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && req.user.name) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
 		});
 	
