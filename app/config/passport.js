@@ -40,7 +40,7 @@ module.exports = function (passport) {
 					newUser.github.username    = profile.username;
 					newUser.name               = profile.displayName;
 					newUser.github.publicRepos = profile._json.public_repos;
-					newUser.dp                 = profile.avatar_url;
+					newUser.dp                 = profile._json.avatar_url || "/public/img/user.png";
                     newUser.polls              = [];
                     newUser.pollsVoted         = 0;
 					newUser.save(function (err) {
@@ -87,7 +87,7 @@ module.exports = function (passport) {
                     newUser.twitter.token       = token;
                     newUser.twitter.username    = profile.username;
                     newUser.name                = profile.displayName;
-                    newUser.dp                  = profile.photos[0].value;
+                    newUser.dp                  = profile.photos[0].value || "/public/img/user.png";
                     newUser.polls               = [];
                     newUser.pollsVoted          = 0;
                     // save our user into the database
@@ -138,7 +138,7 @@ module.exports = function (passport) {
                     newUser.facebook.token   = token; // we will save the token that facebook provides to the user                    
                     newUser.name             = profile.displayName; // look at the passport user profile to see how names are returned
                     newUser.facebook.email   = (profile.emails && profile.emails[0].value) || "Email not added"; // facebook can return multiple emails so we'll take the first
-                    newUser.dp               = profile.image || undefined;
+                    newUser.dp               = profile.image || "/public/img/user.png";
                     newUser.polls            = [];
                     newUser.pollsVoted       = 0;
                     // save our user to the database
@@ -188,7 +188,7 @@ module.exports = function (passport) {
                     newUser.google.token = token;
                     newUser.name         = profile.displayName;
                     newUser.google.email = profile.emails[0].value; // pull the first email
-                    newUser.dp           = profile.photos[0].value;
+                    newUser.dp           = profile.photos[0].value || "/public/img/user.png";
                     newUser.polls        = [];
                     newUser.pollsVoted   = 0;
                     // save the user
