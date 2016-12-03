@@ -7,6 +7,6 @@
         deleteProfileUrl = appUrl + '/profile';
     
     deleteAccountBtn.addEventListener("click", function() {
-        ajaxFunctions.ajaxRequest('DELETE', deleteProfileUrl);
+        ajaxFunctions.ajaxRequest('POST', deleteProfileUrl);
     })
 })();

@@ -52,7 +52,7 @@ module.exports = function (app, passport) {
 		// logout
 		// remove user from db
 		// redirect to homepage
-		.delete(isLoggedIn, function(req, res, next) {
+		.post(isLoggedIn, function(req, res, next) {
 			req.userID = req.user._id;
 			req.logout();
 			next();
