@@ -9,6 +9,7 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
+			console.log(req.route.path);
 			res.redirect('/login');
 		}
 	}
@@ -19,7 +20,7 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(function (req, res) {
-			console.log(req.user);
+			console.log(req.route.path);
 			res.render("./pages/index", {
 				pageTitle : "Home",
 				userLoggedIn: req.isAuthenticated(),
@@ -29,6 +30,7 @@ module.exports = function (app, passport) {
 
 	app.route('/login')
 		.get(function (req, res) {
+			console.log(req.route.path);
 			res.render("./pages/login", {
 				pageTitle : "Login",
 				userLoggedIn: req.isAuthenticated(),
@@ -128,7 +130,7 @@ module.exports = function (app, passport) {
                     failureRedirect : '/login'
             }));
 
-	// app.route('/api/:id/clicks')
+	app.route('/api/:id/clicks')
 	// 	.get(isLoggedIn, clickHandler.getClicks)
 	// 	.post(isLoggedIn, clickHandler.addClick)
 	// 	.delete(isLoggedIn, clickHandler.resetClicks);
