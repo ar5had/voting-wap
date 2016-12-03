@@ -56,9 +56,10 @@ module.exports = function (app, passport) {
 			req.userID = req.user._id;
 			req.logout();
 			next();
-		}, clickHandler.removeProfile, function(req, res) {
+		}, function(req, res, next) {
 			res.redirect("/");
-		} );
+			next();
+		}, clickHandler.removeProfile );
 		
 	app.route('/my-polls')
 		.get(isLoggedIn, function (req, res) {
