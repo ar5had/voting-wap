@@ -36,15 +36,12 @@ function ClickHandler () {
 	// 		);
 	// };
 	
-	this.removeProfile = function (req, res, next) {
-		var userId = req.user._id;
-		req.logout();
-		console.log(userId);
+	this.removeProfile = function (req, res) {
+		console.log(req.userID);
 		Users
-			 .findOneAndRemove({ '_id': userId }, function(err, doc) {
+			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
 			 	if (err) throw err;
 			 	console.log("Deleting profile:", doc);
-			 	next();
 			 });
 	};
 
