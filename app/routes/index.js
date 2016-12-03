@@ -45,7 +45,8 @@ module.exports = function (app, passport) {
 				userLoggedIn: req.isAuthenticated(),
 				name: (req.user && ("- " + req.user.name.toString())) || "",
 				pollsCreated: req.user.polls.length, 
-				pollsVoted: req.user.pollsVoted
+				pollsVoted: req.user.pollsVoted,
+				img: req.user.dp
 			});
 		});
 		
