@@ -9,9 +9,7 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			console.log("session is \n",req.session);
 			req.session.returnTo = req.path;
-			console.log("initial path is \n",req.path);
 			res.redirect('/login');
 		}
 	}
@@ -100,7 +98,6 @@ module.exports = function (app, passport) {
 			failureRedirect: '/login'
 		}), 
         function(req, res) {
-        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -114,7 +111,6 @@ module.exports = function (app, passport) {
             failureRedirect : '/login'
         }), 
         function(req, res) {
-        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -128,7 +124,6 @@ module.exports = function (app, passport) {
             failureRedirect : '/login'
         }), 
         function(req, res) {
-        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -142,7 +137,6 @@ module.exports = function (app, passport) {
                     failureRedirect : '/login'
             }), 
             function(req, res) {
-            	console.log("Return to path is: /n", req.session.returnTo);
             	res.redirect(req.session.returnTo || "/");
             	delete req.session.returnTo;
             });
