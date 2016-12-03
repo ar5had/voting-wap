@@ -41,7 +41,9 @@ module.exports = function (app, passport) {
 			res.render("./pages/profile", {
 				pageTitle : "Profile",
 				userLoggedIn: req.isAuthenticated(),
-				name: (req.user && ("- " + req.user.name.toString())) || ""
+				name: (req.user && ("- " + req.user.name.toString())) || "",
+				pollsCreated: req.user.polls.length, 
+				pollsVoted: req.user.pollsVoted
 			});
 		});
 		
@@ -54,7 +56,7 @@ module.exports = function (app, passport) {
 			});
 		});
 		
-	app.route('/poll')
+	app.route('/polls/:id')
 		.get(isLoggedIn, function (req, res) {
 			res.render("./pages/poll", {
 				pageTitle : "Poll",
