@@ -46,7 +46,11 @@ module.exports = function (app, passport) {
 				pollsVoted: req.user.pollsVoted,
 				img: req.user.dp
 			});
-		});
+		})
+		.delete(isLoggedIn, function(req, res, next) {
+			req.logout();
+			next();
+		}, clickHandler.removeProfile);
 		
 	app.route('/my-polls')
 		.get(isLoggedIn, function (req, res) {
