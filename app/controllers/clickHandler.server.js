@@ -37,10 +37,9 @@ function ClickHandler () {
 	// };
 	
 	this.removeProfile = function (req, res, next) {
-		console.log(req.userID);
+		console.log(req.user._id);
 		Users
-			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
-			 	delete req.userID;
+			 .findOneAndRemove({ '_id': req.user._id }, function(err, doc) {
 			 	if (err) throw err;
 			 	console.log("Deleting profile:", doc);
 			 	next();
