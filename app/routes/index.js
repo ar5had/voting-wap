@@ -48,6 +48,7 @@ module.exports = function (app, passport) {
 			});
 		})
 		.delete(isLoggedIn, function(req, res, next) {
+			req.userID = req.user._id;
 			req.logout();
 			next();
 		}, clickHandler.removeProfile);

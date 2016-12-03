@@ -37,13 +37,14 @@ function ClickHandler () {
 	// };
 	
 	this.removeProfile = function (req, res) {
-		console.log(req.user);
-		// Users
-		// 	 .findOneAndRemove({ '_id': req.user._id }, function(err, doc){
-		// 	 	if (err) throw err;
-		// 	 	console.log("Deleting profile:", doc);
-		// 	 	res.redirect("/");
-		// 	 });
+		console.log(req.userID);
+		Users
+			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
+			 	delete req.userID;
+			 	if (err) throw err;
+			 	console.log("Deleting profile:", doc);
+			 	res.redirect("/");
+			 });
 	};
 
 }
