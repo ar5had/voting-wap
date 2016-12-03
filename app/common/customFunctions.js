@@ -36,4 +36,8 @@
         document.body.appendChild(form)
         form.submit();
     }
+    
+    Array.prototype.forEach.call(document.querySelectorAll(".logout"), function(elem) {
+    	elem.addEventListener("click", logout);
+    });
 })();
