@@ -22,6 +22,10 @@ main {
 	max-width: 880px;
 }
 
+.curPoin {
+	cursor: pointer !important;
+}
+
 img.errorImg {
 	position: absolute;
     top: 50%;
@@ -656,6 +660,7 @@ input {
 
 .sLinks {
 	padding: 10px 20px !important;
+	cursor: pointer;
 }
 
 .sLinks{
