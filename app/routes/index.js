@@ -9,7 +9,8 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			console.log(req.route.path);
+			console.log(req.session);
+			req.session.returnTo = req.path;
 			res.redirect('/login');
 		}
 	}
@@ -99,7 +100,11 @@ module.exports = function (app, passport) {
 		.get(passport.authenticate('github', {
 			successRedirect: '/',
 			failureRedirect: '/login'
-		}));
+		}), 
+        function(req, res) {
+        	res.redirect(req.session.returnTo || "/");
+        	delete req.session.returnTo;
+        });
 		
 	// route for facebook authentication and login
     app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
@@ -107,9 +112,12 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/',
             failureRedirect : '/login'
-        }));
+        }), 
+        function(req, res) {
+        	res.redirect(req.session.returnTo || "/");
+        	delete req.session.returnTo;
+        });
         
     // route for twitter authentication and login    
     app.get('/auth/twitter', passport.authenticate('twitter'));
@@ -117,9 +125,12 @@ module.exports = function (app, passport) {
     // handle the callback after twitter has authenticated the user
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
-            successRedirect : '/',
             failureRedirect : '/login'
-        }));
+        }), 
+        function(req, res) {
+        	res.redirect(req.session.returnTo || "/");
+        	delete req.session.returnTo;
+        });
 	
 	// route for google authentication and login        
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
@@ -127,9 +138,12 @@ module.exports = function (app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/',
                     failureRedirect : '/login'
-            }));
+            }), 
+            function(req, res) {
+            	res.redirect(req.session.returnTo || "/");
+            	delete req.session.returnTo;
+            });
 
 	app.route('/api/:id/clicks')
 	// 	.get(isLoggedIn, clickHandler.getClicks)
