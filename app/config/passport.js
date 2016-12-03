@@ -26,7 +26,6 @@ module.exports = function (passport) {
 		callbackURL  : configAuth.githubAuth.callbackURL
 	},
 	function (token, refreshToken, profile, done) {
-	    console.log("Github profile: \n", profile );
 		process.nextTick(function () {
 			User.findOne({ 'github.id': profile.id }, function (err, user) {
 				if (err) {
@@ -65,7 +64,6 @@ module.exports = function (passport) {
 
     },
     function(token, tokenSecret, profile, done) {
-        console.log("Twitter profile: \n", profile );
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Twitter
         process.nextTick(function() {
@@ -116,7 +114,6 @@ module.exports = function (passport) {
 
     // facebook will send back the token and profile
     function(token, refreshToken, profile, done) {
-        console.log("Fb profile: \n", profile );
         // asynchronous
         process.nextTick(function() {
 
@@ -166,7 +163,6 @@ module.exports = function (passport) {
 
     },
     function(token, refreshToken, profile, done) {
-        console.log("Google profile: \n", profile );
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {

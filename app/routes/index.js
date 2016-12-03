@@ -9,8 +9,9 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			console.log(req.session);
+			console.log("session is \n",req.session);
 			req.session.returnTo = req.path;
+			console.log("initial path is \n",req.path);
 			res.redirect('/login');
 		}
 	}
@@ -21,7 +22,6 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(function (req, res) {
-			console.log(req.route.path);
 			res.render("./pages/index", {
 				pageTitle : "Home",
 				userLoggedIn: req.isAuthenticated(),
@@ -31,7 +31,6 @@ module.exports = function (app, passport) {
 
 	app.route('/login')
 		.get(function (req, res) {
-			console.log(req.route.path);
 			res.render("./pages/login", {
 				pageTitle : "Login",
 				userLoggedIn: req.isAuthenticated(),
@@ -98,10 +97,10 @@ module.exports = function (app, passport) {
 
 	app.route('/auth/github/callback')
 		.get(passport.authenticate('github', {
-			successRedirect: '/',
 			failureRedirect: '/login'
 		}), 
         function(req, res) {
+        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -115,6 +114,7 @@ module.exports = function (app, passport) {
             failureRedirect : '/login'
         }), 
         function(req, res) {
+        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -128,6 +128,7 @@ module.exports = function (app, passport) {
             failureRedirect : '/login'
         }), 
         function(req, res) {
+        	console.log("Return to path is: /n", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
         });
@@ -141,11 +142,12 @@ module.exports = function (app, passport) {
                     failureRedirect : '/login'
             }), 
             function(req, res) {
+            	console.log("Return to path is: /n", req.session.returnTo);
             	res.redirect(req.session.returnTo || "/");
             	delete req.session.returnTo;
             });
 
-	app.route('/api/:id/clicks')
+	//app.route('/api/:id/clicks')
 	// 	.get(isLoggedIn, clickHandler.getClicks)
 	// 	.post(isLoggedIn, clickHandler.addClick)
 	// 	.delete(isLoggedIn, clickHandler.resetClicks);
