@@ -40,8 +40,12 @@ function ClickHandler () {
 		console.log(req.userID);
 		Users
 			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
-			 	if (err) throw err;
+			 	if (err) {
+			 		console.error('Error occured while removing profile', err);
+        			res.send(400);
+			 	};
 			 	console.log("Deleting profile:", doc);
+			 	res.send(200);
 			 });
 	};
 
