@@ -11,7 +11,7 @@
             // this will redirect the user back to homepage
             // once his account is deleted.
             console.log("In final get req to", appUrl);
-            ajaxFunctions.ajaxRequest('GET', appUrl);
+            ajaxFunctions.ajaxRequest('GET', appUrl+"/");
         });
     })
 })();
