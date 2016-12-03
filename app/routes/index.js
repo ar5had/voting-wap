@@ -47,11 +47,18 @@ module.exports = function (app, passport) {
 				img: req.user.dp
 			});
 		})
+		// isLoggedIn
+		// saveID of user
+		// logout
+		// remove user from db
+		// redirect to homepage
 		.delete(isLoggedIn, function(req, res, next) {
 			req.userID = req.user._id;
 			req.logout();
 			next();
-		}, clickHandler.removeProfile);
+		}, clickHandler.removeProfile, function(req, res) {
+			res.redirect("/");
+		} );
 		
 	app.route('/my-polls')
 		.get(isLoggedIn, function (req, res) {
