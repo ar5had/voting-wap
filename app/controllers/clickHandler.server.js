@@ -36,7 +36,7 @@ function ClickHandler () {
 	// 		);
 	// };
 	
-	this.removeProfile = function (req, res) {
+	this.removeProfile = function (req, res, next) {
 		console.log(req.userID);
 		Users
 			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
@@ -45,7 +45,7 @@ function ClickHandler () {
         			res.send(400);
 			 	};
 			 	console.log("Deleting profile:", doc);
-			 	res.send(200);
+			 	next();
 			 });
 	};
 
