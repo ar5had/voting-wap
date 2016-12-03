@@ -56,9 +56,6 @@ module.exports = function (app, passport) {
 			req.userID = req.user._id;
 			req.logout();
 			next();
-		}, function(req, res, next) {
-			res.redirect("/");
-			next();
 		}, clickHandler.removeProfile );
 		
 	app.route('/my-polls')
