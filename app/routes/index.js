@@ -57,8 +57,7 @@ module.exports = function (app, passport) {
 		// 	next();
 		// }, clickHandler.removeProfile);
 		.delete(isLoggedIn, function(req, res) {
-			console.log("redirecting");
-			res.redirect(303, "/");	
+			res.status(200).send();
 		});
 		
 	app.route('/my-polls')
@@ -166,7 +165,7 @@ module.exports = function (app, passport) {
 	});
 	
 	app.get("/tryGet", function(req, res) {
-		res.status(200).send({data:"data"})	
+		res.status(200).json({"data":"data"})	
 	});
 	
 };
