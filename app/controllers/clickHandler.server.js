@@ -45,8 +45,7 @@ function ClickHandler () {
         			res.status(500).send({ error: "Something went wrong!"});
 			 	};
 			 	console.log("Deleting profile:", doc);
-			 	req.method = 'GET';
-			 	res.redirect("/");
+			 	res.redirect(302, "/");
 			 });
 	};
 
