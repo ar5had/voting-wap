@@ -9,7 +9,7 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			req.session.returnTo = req.path;
+			// req.session.returnTo = req.path;
 			res.redirect('/login');
 		}
 	}

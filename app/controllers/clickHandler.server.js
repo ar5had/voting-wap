@@ -38,16 +38,20 @@ function ClickHandler () {
 	
 	this.removeProfile = function (req, res, next) {
 		console.log(req.userID);
-		// Users
-		// 	 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
-		// 	 	if (err) {
-		// 	 		console.error('Error occured while removing profile', err);
-  //      			res.status(500).send({ error: "Something went wrong!"});
-		// 	 	};
-		// 	 	console.log("Deleting profile:", doc);
+		Users
+			 .findOneAndRemove({ '_id': req.userID }, function(err, doc) {
+			 	if (err) {
+			 		console.error('Error occured while removing profile', err);
+        			res.status(500).send({ error: "Something went wrong!"});
+			 	}
 			 	
-		// 	 });
-		res.redirect(303, "/");
+				else {
+					console.log("Deleting profile:", doc);
+					res.redirect(303, "/");
+				}
+			 	
+		 	 });
+
 	};
 
 }
