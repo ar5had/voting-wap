@@ -52,10 +52,14 @@ module.exports = function (app, passport) {
 		// logout
 		// remove user from db
 		// redirect to homepage
-		.delete(isLoggedIn, function (req, res, next) {
-			req.userID = req.user._id;
-			next();
-		}, clickHandler.removeProfile);
+		// .delete(isLoggedIn, function (req, res, next) {
+		// 	req.userID = req.user._id;
+		// 	next();
+		// }, clickHandler.removeProfile);
+		.delete(isLoggedIn, function(req, res) {
+			console.log("redirecting");
+			res.redirect(303, "/");	
+		});
 		
 	app.route('/my-polls')
 		.get(isLoggedIn, function (req, res) {
@@ -159,6 +163,10 @@ module.exports = function (app, passport) {
 		res.render("./pages/error", { 
 			pageTitle: "404 - Page Not Found"
 		});	
+	});
+	
+	app.get("/tryGet", function(req, res) {
+		res.status(200).send({data:"data"})	
 	});
 	
 };
