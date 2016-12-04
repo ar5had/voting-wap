@@ -51,14 +51,12 @@ module.exports = function (app, passport) {
 		// saveID of user
 		// logout
 		// remove user from db
-		// redirect to homepage
-		// .delete(isLoggedIn, function (req, res, next) {
-		// 	req.userID = req.user._id;
-		// 	next();
-		// }, clickHandler.removeProfile);
-		.delete(isLoggedIn, function(req, res) {
-			res.status(200).send();
-		});
+		// redirect to homepage (clickController.client.profile.js)
+		.delete(isLoggedIn, function (req, res, next) {
+			req.userID = req.user._id;
+			req.logout();
+			next();
+		}, clickHandler.removeProfile);
 		
 	app.route('/my-polls')
 		.get(isLoggedIn, function (req, res) {

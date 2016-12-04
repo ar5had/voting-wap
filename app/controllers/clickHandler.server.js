@@ -43,17 +43,12 @@ function ClickHandler () {
 			 	if (err) {
 			 		console.error('Error occured while removing profile', err);
         			res.status(500).send({ error: "Something went wrong!"});
-			 	}
-			 	
-				else {
+			 	} else {
 					console.log("Deleting profile:", doc);
-					res.redirect(303, "/");
+					res.status(200).send();
 				}
-			 	
 		 	 });
-
 	};
-
 }
 
 module.exports = ClickHandler;
