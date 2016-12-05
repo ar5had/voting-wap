@@ -67,22 +67,25 @@ function ClickHandler () {
 					if (err) { 
 						console.error("Some error happened while Adding question to user's account");
 						res.status(500).send();
-					} else {
+					} 
+					else {
 						user.polls.push({
 							question: question,
-							options: options.split(","),
-							addedAt: new Date().toLocaleDateString("en-US", dateOptions)
+							options: options,
+							createdAt: new Date().toLocaleDateString("en-US", dateOptions)
 						});	
 						user.save(function(err) {
 						    if (err) {
 						    	console.error("Some error happened while Saving question to user's account");
 								res.status(500).send();
+						    } else {
+							    console.log("Question successfully added to user's account!");
+							    console.log(question, options);
+							    next();
 						    }
-						    console.log("Question successfully added to user's account!");
-						    console.log(question, options);
-						    next();
 						});
 					}
+					console.log(user);
 				}
 			);
 	};
