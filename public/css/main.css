@@ -145,10 +145,10 @@ button {
 	border-radius: 5px;
 	color: #999;
 	border: solid 1px;
-	-webkit-transition: color 200ms ease-in, background 200ms ease-in;
-	-moz-transition: color 200ms ease-in, background 200ms ease-in;
-	-o-transition: color 200ms ease-in, background 200ms ease-in;
-	transition: color 200ms ease-in, background 200ms ease-in;
+	-webkit-transition: color 100ms ease-in, background 100ms ease-in;
+	-moz-transition: color 100ms ease-in, background 100ms ease-in;
+	-o-transition: color 100ms ease-in, background 100ms ease-in;
+	transition: color 100ms ease-in, background 100ms ease-in;
 	margin-bottom: 30px;
 	outline: none;
 }
@@ -214,7 +214,7 @@ button>i.fa {
 }
 
 .logoutBtn:hover {
-	color: #555;
+	color: #222;
 }
 
 .userPollsInfo > p > span {
