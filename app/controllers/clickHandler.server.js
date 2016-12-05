@@ -61,32 +61,30 @@ function ClickHandler () {
 			return option.replace(/^\s+|\s+$/g, "");
 		});
 		
-		next();
-		
-		// Users
-		// 	.findById(req.user.id)
-		// 	.exec(function (err, user) {
-		// 			if (err) { 
-		// 				console.error("Some error happened while Adding question to user's account");
-		// 				res.status(500).send();
-		// 			} else {
-		// 				user.polls.push({
-		// 					question: question,
-		// 					options: options.split(","),
-		// 					addedAt: new Date().toLocaleDateString("en-US", dateOptions)
-		// 				});	
-		// 				user.save(function(err) {
-		// 				    if (err) {
-		// 				    	console.error("Some error happened while Saving question to user's account");
-		// 						res.status(500).send();
-		// 				    }
-		// 				    console.log("Question successfully added to user's account!");
-		// 				    console.log(question, options);
-		// 				    next();
-		// 				});
-		// 			}
-		// 		}
-		// 	);
+		Users
+			.findById(req.user.id)
+			.exec(function (err, user) {
+					if (err) { 
+						console.error("Some error happened while Adding question to user's account");
+						res.status(500).send();
+					} else {
+						user.polls.push({
+							question: question,
+							options: options.split(","),
+							addedAt: new Date().toLocaleDateString("en-US", dateOptions)
+						});	
+						user.save(function(err) {
+						    if (err) {
+						    	console.error("Some error happened while Saving question to user's account");
+								res.status(500).send();
+						    }
+						    console.log("Question successfully added to user's account!");
+						    console.log(question, options);
+						    next();
+						});
+					}
+				}
+			);
 	};
 }
 

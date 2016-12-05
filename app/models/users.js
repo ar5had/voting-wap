@@ -3,10 +3,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var pollSchema = new Schema({
+	question   : String,
+	options    : Array,
+	createdAt  : String
+});
+
 var User = new Schema({
 	name       : String,
 	dp         : String,
-	polls      : Array,
+	polls      : [pollSchema],
 	pollsVoted : Number,
 	github   : {
 		id          : String,
