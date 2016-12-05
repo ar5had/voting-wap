@@ -62,7 +62,7 @@ function ClickHandler () {
 		});
 		
 		Users
-			.findById(req.user.id)
+			.findById(req.user._id)
 			.exec(function (err, user) {
 					if (err) { 
 						console.error("Some error happened while Adding question to user's account");
