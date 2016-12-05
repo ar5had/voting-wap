@@ -205,7 +205,7 @@ button>i.fa {
 }
 
 .deleteAccBtn {
-	color: rgba(220, 0 ,0 , .5);
+	color: rgba(220, 0 ,0 , .4);
 	margin-bottom: 10px;
 }
 
@@ -680,12 +680,91 @@ input {
 	background: #f4f4f4;
 }
 
-.sidebarWrapper.open {
+.sidebarWrapper.open,
+#bkdHider.open,
+.modalWrapper.open {
 	display: block;
 }
 
-.sidebarWrapper.visible {
+.sidebarWrapper.visible,
+.modalWrapper.visible {
 	opacity: 1;
+}
+
+#bkdHider.visible {
+	opacity: .2;
+}
+
+/***** Modal *****/
+
+.modalWrapper {
+	display: none;
+	opacity: 0;
+	padding: 20px;
+    max-width: 420px;
+    width: 100%;
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	z-index: 100000;
+	transform: translate(-50%, -50%);
+	-webkit-transition: 100ms all ease;
+	-moz-transition: 100ms all ease;
+	-o-transition: 100ms all ease;
+	-ms-transition: 100ms all ease;
+	transition: 100ms all ease;
+}
+
+.modalBox {
+	background: #fefefe;
+	padding: 20px;
+	overflow: hidden;
+	border: solid 1px #dbe2e8;
+	box-shadow: 0 0 1em 0 rgba(46,61,73,.3);
+    -moz-box-shadow: 0 0 1em 0 rgba(46,61,73,.3);
+    -webkit-box-shadow: 0 0 1em 0 rgba(46,61,73,.3);
+}
+
+.modalBox > .col-xs-12 {
+	padding: 0;
+}
+
+.modalBox h4 {
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 10px;
+}
+
+.modalBox button {
+	margin-bottom: 0;
+}
+
+#deleteAccBtnFinal {
+	color: rgba(220, 0 ,0 , .4);
+}
+
+#deleteAccBtnFinal:hover, #deleteAccBtnFinal:active {
+	color: rgba(220, 0 ,0 , .8);
+}
+
+#closeModalBtn:hover, #closeModalBtn:active {
+	color: #222;
+}
+
+#bkdHider {
+	display: none;
+	opacity: 0;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	bottom: 0;
+	background: #000;
+	z-index: 10000;
+	-webkit-transition: 100ms all ease;
+	-moz-transition: 100ms all ease;
+	-o-transition: 100ms all ease;
+	-ms-transition: 100ms all ease;
+	transition: 100ms all ease;
 }
 
 /***** Media querries *****/

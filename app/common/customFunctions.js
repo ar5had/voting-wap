@@ -40,4 +40,32 @@
     Array.prototype.forEach.call(document.querySelectorAll(".logout"), function(elem) {
     	elem.addEventListener("click", logout);
     });
+    
+    var modal = document.querySelector(".modalWrapper"),
+		hider = document.querySelector("#bkdHider"),
+		openModalBtn = document.querySelector("#deleteAccBtn"),
+		closeModalBtn = document.querySelector("#closeModalBtn");
+	
+	if (openModalBtn && closeModalBtn) {
+		openModalBtn.addEventListener("click", openModal);
+		closeModalBtn.addEventListener("click", openModal);
+	}
+	
+	function openModal() {
+		modal.classList.toggle("open");
+		hider.classList.toggle("open");
+		setTimeout(function() {
+			modal.classList.toggle("visible");
+			hider.classList.toggle("visible");
+		}, 200);
+	}
+	
+	function closeModal() {
+		modal.classList.toggle("visible");
+		hider.classList.toggle("visible");
+		setTimeout(function() {
+			modal.classList.toggle("open");
+			hider.classList.toggle("open");
+		}, 200);
+	}
 })();

@@ -3,7 +3,7 @@
 // this file will be added via script tag
 
 (function(){
-    var deleteAccountBtn = document.querySelector("#deleteAccBtn"),
+    var deleteAccountBtn = document.querySelector("#deleteAccBtnFinal"),
         deleteProfileUrl = appUrl + '/profile';
     
     deleteAccountBtn.addEventListener("click", function() {
