@@ -23,6 +23,7 @@
   "author": "Arshad Khan",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "dotenv": "^1.2.0",
     "ejs": "^2.5.2",
     "express": "^4.12.4",

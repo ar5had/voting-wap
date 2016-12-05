@@ -92,6 +92,9 @@ module.exports = function (app, passport) {
 				userLoggedIn: req.isAuthenticated(),
 				name: (req.user && ("- " + req.user.name.toString())) || ""
 			});
+		})
+		.post(isLoggedIn, clickHandler.addPoll, function(req, res) {
+			res.redirect("/");
 		});
 	
 	app.route('/logout')

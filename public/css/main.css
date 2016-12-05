@@ -569,7 +569,7 @@ option[disabled=true] {
 }
 
 .bthBtn:hover {
-	color: #555;
+	color: #222;
 }
 
 
@@ -600,10 +600,10 @@ input {
 	display: none;
 	opacity: 0;
 	transform: translateX(-460px);
-	-webkit-transition: 170ms all ease;
-	-moz-transition: 170ms all ease;
-	-o-transition: 170ms all ease;
-	-ms-transition: 170ms all ease;
+	-webkit-transition: 100ms all ease;
+	-moz-transition: 100ms all ease;
+	-o-transition: 100ms all ease;
+	-ms-transition: 100ms all ease;
 }
 
 .sidebar {

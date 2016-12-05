@@ -32,7 +32,6 @@ var ajaxFunctions = {
          if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             callback(true);
          } else if (xmlhttp.readyState === 4 && xmlhttp.status > 200) {
-            console.log("rs called");
             callback(false);
          }
          
