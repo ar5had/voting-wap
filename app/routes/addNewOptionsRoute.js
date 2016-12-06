@@ -1,5 +1,5 @@
 var Polls = require("../models/polls.js");
-var randomColor = require("randomColor");
+var randomColor = require("randomcolor");
 
 var addOptions = function(req, res, next) {
     Polls.
