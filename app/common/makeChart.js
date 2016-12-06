@@ -1,6 +1,3 @@
-var randomColor = require("randomcolor");
-
-var backgroundColors = randomColor({luminosity: 'light',count: 3});
 
 var data = {
     labels: [
