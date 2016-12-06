@@ -27,3 +27,9 @@
 		</div>
 	</a>
 <% }); %>
+<% if (!polls.length) { %>
+	<div class="col-xs-12 text-center emptyBlock marB30">
+		<img class="emptyImg img-responsive" src="/public/img/folder.png" alt="404 - Page Not Found" />
+		<h3>No polls found</h3>
+	</div>
+<% } %>

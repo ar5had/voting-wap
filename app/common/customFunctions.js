@@ -43,15 +43,16 @@
     
     var modal = document.querySelector(".modalWrapper"),
 		hider = document.querySelector("#bkdHider"),
-		openModalBtn = document.querySelector("#deleteAccBtn"),
-		closeModalBtn = document.querySelector("#closeModalBtn");
+		openModalBtn = document.querySelector(".openModalBtn"),
+		closeModalBtn = document.querySelector(".closeModalBtn");
 	
 	if (openModalBtn && closeModalBtn) {
 		openModalBtn.addEventListener("click", openModal);
-		closeModalBtn.addEventListener("click", openModal);
+		closeModalBtn.addEventListener("click", closeModal);
 	}
 	
 	function openModal() {
+		//document.body.style.overflow = "hidden";
 		modal.classList.toggle("open");
 		hider.classList.toggle("open");
 		setTimeout(function() {
@@ -61,6 +62,7 @@
 	}
 	
 	function closeModal() {
+		//document.body.style.overflow = "auto";
 		modal.classList.toggle("visible");
 		hider.classList.toggle("visible");
 		setTimeout(function() {

@@ -1,7 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
-var encrypt   = require("../utilities/encrypt.js");
 
 var PollSchema = new Schema({
 	question   : String,
@@ -12,12 +11,9 @@ var PollSchema = new Schema({
 	colors     : Array,
 	author     : String,
 	authorId   : mongoose.Schema.Types.ObjectId,
-	secret     : String
-});
-
-PollSchema.pre('save', function(next){
-    this.secret = encrypt(new Date().getTime());
-    next();
+	secret     : String,
+	viewedIp   : Array,
+	votedIp    : Array
 });
 
 module.exports = mongoose.model('Poll', PollSchema);

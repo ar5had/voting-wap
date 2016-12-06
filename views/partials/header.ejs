@@ -1,8 +1,11 @@
 <div id="hideAll" style="display:block;">&nbsp;</div>
 <script>
 	window.onload=function() {
-    	document.getElementById('hideAll').style.display='none';
-	}
+		document.getElementById('hideAll').style.opacity = 0;
+		setTimeout(function() {
+    		document.getElementById('hideAll').style.display='none';
+		}, 200);
+	};
 </script>
 <div class="container-fluid header">
 	<div class="container">

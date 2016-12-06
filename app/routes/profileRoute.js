@@ -34,7 +34,8 @@ module.exports = function (app, isLoggedIn, clickHandler) {
 				name: (req.user && ("- " + req.user.name.toString())) || "",
 				pollsCreated: req.user.pollsCount, 
 				pollsVoted: req.user.pollsVotedCount,
-				img: req.user.dp
+				img: req.user.dp,
+				page: "profilePage"
 			});
 		})
 		.delete(isLoggedIn, function (req, res, next) {

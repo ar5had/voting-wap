@@ -3,6 +3,7 @@
 var Users       = require('../models/users.js');
 var Polls       = require('../models/polls.js');
 var randomColor = require("randomcolor");
+var encrypt   = require("../utilities/encrypt.js");
 
 var addPoll = function (req, res, next) {
 	var question = req.body.question,
@@ -13,7 +14,9 @@ var addPoll = function (req, res, next) {
 	options = options.map(function(option) {
 		return option.replace(/^\s+|\s+$/g, "");
 	});
-
+	
+	req.secret                 = encrypt(new Date().getTime());
+	
 	var poll                   = new Polls();
 	poll.question              = question;
 	poll.options               = options;
@@ -23,6 +26,9 @@ var addPoll = function (req, res, next) {
 	poll.colors                = randomColor({luminosity: 'light',count: options.length});
     poll.authorId              = req.user._id;
     poll.author                = req.user.name;
+    poll.secret                = req.secret;
+    poll.viewedIp              = [];
+    poll.votedIp               = [];
 	poll.save(function (err) {
 		if (err) {
 			console.error('Some error happened while Adding poll to polls collection');
@@ -56,6 +62,7 @@ module.exports = function (app, isLoggedIn) {
 			});
 		})
 		.post(isLoggedIn, addPoll, function(req, res) {
-			res.redirect("/");
+			res.redirect("/polls/" + req.secret);
+			delete req.redirect;
 		});
 };
