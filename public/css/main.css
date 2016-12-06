@@ -34,6 +34,17 @@ img.errorImg {
     padding: 20px;
 }
 
+.addOptBtn {
+	margin-bottom: 0;
+	border: none;
+	background: #ece497;
+	color: #fff;
+}
+
+.addOptBtn:hover, .addOptBtn:active {
+	background: #e6db71;
+}
+
 .credit{
 	font-family: 'Source Sans Pro';
 	color: #666;

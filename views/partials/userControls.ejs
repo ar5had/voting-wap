@@ -4,26 +4,57 @@
 			<div class="col-xs-12 text-center heading marB20">	
 				<h3>Vote in this Poll</h3>
 			</div>
-		    <div class="col-xs-12 text-center">
-				<div class="selectWrapper">
-				    <select name="pollQuestionMenu" id="pollQuestionMenu">
-					    <option value="" disabled selected>Choose an option...</option>
-					    <% poll.options.forEach(function(option){%>
-					    	<option value="<%=option %>"><%= option %></option>
-				    	<% }); %>
-				    </select>
-				</div> 
+			<form action="/<%= poll.secret %>" method="post" name="voteSubmission" id="voteSubmission">
+			    <div class="col-xs-12 text-center">
+					<div class="selectWrapper">
+					    <select name="pollQuestionMenu" id="pollQuestionMenu">
+						    <option value="" disabled selected>Choose an option...</option>
+						    <% poll.options.forEach(function(option){%>
+						    	<option value="<%=option %>"><%= option %></option>
+					    	<% }); %>
+					    </select>
+					</div> 
+				</div>
+				<div class="col-xs-12 text-center">
+					<button class="submitBtn" form="voteSubmission">
+				    	Submit
+				    </button>
+				</div>
+			</form>
+			
+			<% if (pollMaker) { %>
+				<div class="col-xs-12 text-center marB20">
+			       <button class="addOptBtn">
+			        	Add options
+		            </button>
+		        </div>
+			<% } %>
+			<div class="col-xs-12 borderWrapper marB20">
+				<div class="borderElem col-xs-12"></div>
 			</div>
+			<div class="col-xs-12 text-center marB20">
+			    <a target="_blank" href="http://twitter.com/home?status=<%= poll.question%>+https://voting-wap.herokuapp.com/poll/<%= poll.secret %>" >
+			        <button class="shareBtn twitterBtn">
+			        	<i class="fa fa-twitter" aria-hidden="true"></i>
+		                Share
+		            </button>
+		        </a>
+		    </div>
+		    
+			
+			<div class="col-xs-12 text-center marB20">
+			    <a target="_blank" href="https://plus.google.com/share?url=https://voting-wap.herokuapp.com/poll/<%= poll.secret %>" >
+			        <button class="shareBtn googleBtn">
+			        	<i class="fa fa-google-plus" aria-hidden="true"></i>
+		                Share
+		            </button>
+		        </a>
+		    </div>
+			
 			<div class="col-xs-12 text-center">
-			    <a href="">
-			        <button class="submitBtn">
-			            Submit
-			        </button>
-			    </a>
-			</div>
-			<div class="col-xs-12 text-center">
-			    <a href="" >
+			    <a target="_blank" href="http://www.facebook.com/share.php?u=https://voting-wap.herokuapp.com/poll/<%= poll.secret %>&title=<%= poll.question%>" >
 			        <button class="shareBtn fbBtn">
+			        	<i class="fa fa-facebook" aria-hidden="true"></i>
 		                Share
 		            </button>
 		        </a>

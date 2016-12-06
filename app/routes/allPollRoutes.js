@@ -22,7 +22,8 @@ module.exports = function(app, isLoggedIn) {
 				pageTitle : req.pollRequested.question,
 				userLoggedIn: req.isAuthenticated(),
 				name: (req.user && ("- " + req.user.name.toString())) || "",
-				poll: req.pollRequested
+				poll: req.pollRequested,
+				pollMaker: (req.user._id.toString() === req.pollRequested.authorId.toString())
 			});
 			delete req.pollRequested;
 		});
