@@ -1,18 +1,18 @@
 'use strict';
 
-var path = process.cwd();
-var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
+var path            = process.cwd();
+var ClickHandler    = require(path + '/app/controllers/clickHandler.server.js');
 
-var authRoutes   = require("./authRoutes.js");
-var profileRoute   = require("./profileRoute.js");
+var authRoutes      = require("./authRoutes.js");
+var profileRoute    = require("./profileRoute.js");
 var homepageRoute   = require("./homepageRoute.js");
-var logoutRoute   = require("./logoutRoute.js");
-var errorRoute   = require("./errorRoute.js");
-var createPollRoute   = require("./createPollRoute.js");
-var loginRoute   = require("./loginRoute.js");
-var creditsRoute = require("./creditsRoute.js");
-var myPollRoute = require("./myPollRoute.js");
-var allPollRoutes = require("./allPollRoutes.js");
+var logoutRoute     = require("./logoutRoute.js");
+var errorRoute      = require("./errorRoute.js");
+var createPollRoute = require("./createPollRoute.js");
+var loginRoute      = require("./loginRoute.js");
+var creditsRoute    = require("./creditsRoute.js");
+var myPollRoute     = require("./myPollRoute.js");
+var allPollRoutes   = require("./allPollRoutes.js");
 
 module.exports = function (app, passport) {
 
@@ -41,7 +41,7 @@ module.exports = function (app, passport) {
 	
 	creditsRoute(app);
 	
-	createPollRoute(app, isLoggedIn, clickHandler);
+	createPollRoute(app, isLoggedIn);
 	
 	logoutRoute(app);
 

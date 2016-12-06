@@ -8,8 +8,9 @@
 				<div class="selectWrapper">
 				    <select name="pollQuestionMenu" id="pollQuestionMenu">
 					    <option value="" disabled selected>Choose an option...</option>
-					    <option value="" onClick="this.parentElement.blur();">Option1</option>
-					    <option value="" onClick="this.parentElement.blur();">Option2</option>
+					    <% poll.options.forEach(function(option){%>
+					    	<option value="<%=option %>"><%= option %></option>
+				    	<% }); %>
 				    </select>
 				</div> 
 			</div>

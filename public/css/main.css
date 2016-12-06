@@ -59,7 +59,8 @@ img.errorImg {
 }
 
 footer {
-	margin-top: 10px;
+	margin: 10px auto 0 auto;
+	max-width: 880px;
 }
 
 footer > .boxWrapper {
@@ -234,6 +235,10 @@ button>i.fa {
 }
 
 .userPollsInfo > p > span {
+	font-weight: normal;
+}
+
+.userPollsInfo > p > strong {
 	color: #999;
 }
 
@@ -415,14 +420,12 @@ a {
 	font-size: 9px;
 	color: #bbb;
 	font-family: "Glyphicons Halflings";
-	content: "\e114";	
+	content: "\e114";
+	cursor: pointer;
 }
 
 select {
 	width: 100%;
-	box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
-	-moz-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
-	-webkit-box-shadow: 0 4px 8px 0 rgba(46,61,73,.15);
 	border: solid 1px #ccc;
 	padding: 10px 20px 10px 10px;
 	margin-bottom: 20px;
@@ -595,7 +598,7 @@ input {
 	padding: 10px 10px;
 	font-family: "Source Sans Pro";
 	border: solid 1px #ccc;
-	color: #999;
+	color: #333;
 	-webkit-transition: box-shadow 200ms ease-in;
 	-moz-transition: box-shadow 200ms ease-in;
 	-o-transition: box-shadow 200ms ease-in;

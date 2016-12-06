@@ -1,16 +1,29 @@
 <div class="col-sm-7 col-xs-12 vleft boxWrapper pollInfoWrapper">
+	<% console.log("Poll Info - ", poll)%>
 	<div class="box">
 		<div class="pollInfo">
 			<div class="col-xs-12 heading marB20">
-				<h3>What is capital of India?</h3>
+				<h3>
+					<%= poll.question %>
+				</h3>
 			</div>
 			<div class="pull-left">
-				<button class="votesCount showBtn">10 Votes</button>
-				<button class="viewsCount showBtn">20 Views</button>
+				<button class="votesCount showBtn">
+					 <%= poll.votes.reduce(function(total, next) { return total + next; }) %> Votes
+				</button>
+				<button class="viewsCount showBtn">
+					<%= poll.views %> Views
+				</button>
 			</div>
 			<div class="pull-right">
-				<p class="author text-right"> <span class="authorName">Arshad Khan</span></p>
-				<p class="date text-right">26 Dec, 2016</p>
+				<p class="author text-right"> 
+					<span class="authorName">
+						<%= poll.author %>
+					</span>
+				</p>
+				<p class="date text-right">
+					<%= poll.createdAt %>
+				</p>
 			</div>
 		</div>
 		<div class="col-xs-12 chartWrapper">	
