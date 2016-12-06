@@ -15,6 +15,21 @@ var getPoll = function(req, res, next) {
 		});
 };
 
+var addVote = function(req, res) {
+	Polls.
+		find({'secret': req.params.id})
+		.exec(function(err, poll) {
+			if (err) {
+				console.error('Some Error happened while finding the poll that is clicked!', err);
+				res.status(500).send({ 'error': 'Some Error happened while finding the poll that is clicked!' });
+			}
+			else {
+				console.log(req.body, poll);
+				
+			}
+		});
+};
+
 module.exports = function(app, isLoggedIn) {
     app.route('/polls/:id')
 		.get(isLoggedIn, getPoll, function (req, res) {
@@ -26,5 +41,6 @@ module.exports = function(app, isLoggedIn) {
 				pollMaker: (req.user._id.toString() === req.pollRequested.authorId.toString())
 			});
 			delete req.pollRequested;
-		});
+		})
+		.post(isLoggedIn, addVote);
 };
