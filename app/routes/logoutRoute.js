@@ -3,9 +3,5 @@ module.exports = function(app) {
     		.post(function (req, res) {
     			req.logout();
     			res.redirect('/');
-    			console.log(req.session.returnTo);
-    			
-    			if (req.session.returnTo)
-    			    delete req.session.returnTo;
     		});
 };

@@ -8,9 +8,10 @@ module.exports = function(app, passport) {
 			failureRedirect: '/login'
 		}), 
         function(req, res) {
+            console.log("b4 req.session.returnTo is", req.session.returnTo);
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
-        	console.log("req.session.returnTo is", req.session.returnTo);
+        	console.log("atr req.session.returnTo is", req.session.returnTo);
         });
 		
 	// route for facebook authentication and login
