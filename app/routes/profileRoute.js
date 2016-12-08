@@ -32,6 +32,7 @@ module.exports = function (app, isLoggedIn, clickHandler) {
 				pageTitle : "Profile",
 				userLoggedIn: req.isAuthenticated(),
 				name: (req.user && ("- " + req.user.name.toString())) || "",
+				username: (req.user && (req.user.name.toString())) || "",
 				pollsCreated: req.user.pollsCount, 
 				pollsVoted: req.user.pollsVotedCount,
 				img: req.user.dp,
