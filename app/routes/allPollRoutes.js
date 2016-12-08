@@ -72,6 +72,20 @@ var addVote = function(req, res, next) {
 					ipAddr = req.connection.remoteAddress;
 				}
 				poll.votedIp.push(ipAddr);
+				// If logged IN, increase poll voted count of user 
+				if (req.user) {
+					Users. 
+						findByIdAndUpdate(req.user._id, {$inc: {pollsVotedCount: 1}})
+						.exec(function(err) {
+							if (err) {
+					    	console.error('Some Error happened while increasing polls voted count!', err);
+							res.status(500).send({ 'error': 'Some Error happened while increasing polls voted count!' });
+							} else {
+								console.log("Successfully increased user's pollsVoted Count");
+							}
+							
+						});
+				}
 				// we are setting req.userVoted true after voting so that voting block doesnt displays again 
 				req.userVoted = true;
 				console.log("vote block will not show");
