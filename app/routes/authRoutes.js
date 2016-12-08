@@ -10,6 +10,7 @@ module.exports = function(app, passport) {
         function(req, res) {
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
+        	console.log("req.session.returnTo is", req.session.returnTo);
         });
 		
 	// route for facebook authentication and login
@@ -23,6 +24,7 @@ module.exports = function(app, passport) {
         function(req, res) {
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
+        	console.log("req.session.returnTo is", req.session.returnTo);
         });
         
     // route for twitter authentication and login    
@@ -36,6 +38,7 @@ module.exports = function(app, passport) {
         function(req, res) {
         	res.redirect(req.session.returnTo || "/");
         	delete req.session.returnTo;
+        	console.log("req.session.returnTo is", req.session.returnTo);
         });
 	
 	// route for google authentication and login        
@@ -49,6 +52,7 @@ module.exports = function(app, passport) {
             function(req, res) {
             	res.redirect(req.session.returnTo || "/");
             	delete req.session.returnTo;
+            	console.log("req.session.returnTo is", req.session.returnTo);
             });
 
 };
