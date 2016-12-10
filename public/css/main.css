@@ -899,11 +899,11 @@ input {
 @media screen and (max-width: 450px) {
 	
 	h2 {
-		font-size: 24px;
+		font-size: 22px;
 	}
 	
 	h3 {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	
 	.description, p{
@@ -919,7 +919,7 @@ input {
 		font-size: 20px; 
 	}
 	.author, .date, .authorName, .showBtn {
-		font-size: 12px;
+		font-size: 11px;
 	}
 	
 	.footer>p, .footer a, .credit, .credit a{
@@ -940,8 +940,20 @@ input {
 		top: 60px;
 	}
 	
-	
 	.sLinks{
 		font-size: 14px;
+	}
+	
+	.boxWrapper, footer > .boxWrapper, .header {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	.box {
+		padding: 15px;
+	}
+	
+	.showBtn {
+		padding: 6px 4px;
 	}
 }
