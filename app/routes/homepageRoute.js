@@ -3,7 +3,7 @@
 var Polls       = require('../models/polls.js');
 var getAllPolls = function(req, res, next) {
 	Polls
-		.find({}, 'author votes views createdAt question secret', function(err, polls) {
+		.find({}, 'edited author votes views createdAt question secret', function(err, polls) {
 			if (err) {
 			  console.error('Some Error happened while accessing all the polls!', err);
 			  res.status(500).send({ 'error': 'Some Error happened while accessing all the polls!' });
