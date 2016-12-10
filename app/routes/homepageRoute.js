@@ -1,6 +1,7 @@
 'use strict';
 
 var Polls       = require('../models/polls.js');
+
 var getAllPolls = function(req, res, next) {
 	Polls
 		.find({}, 'edited author votes views createdAt question secret', function(err, polls) {

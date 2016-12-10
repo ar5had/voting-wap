@@ -150,7 +150,6 @@ a, a:active, a:hover {
     position: absolute;
     bottom: 7px;
     left: 105px;
-    right: 0;
     height: 8px;
     border-top: 1px solid #ccc;
 }
@@ -945,7 +944,7 @@ input {
 		font-size: 14px;
 	}
 	
-	.boxWrapper, footer > .boxWrapper, .header {
+	.boxWrapper, footer > .boxWrapper, .header, .pollContainer {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
