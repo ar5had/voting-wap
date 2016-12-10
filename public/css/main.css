@@ -956,4 +956,12 @@ input {
 	.showBtn {
 		padding: 6px 4px;
 	}
+	
+	.sLinks {
+    	padding: 10px 15px !important;
+	}
+	
+	.borderWrapper {
+    	padding: 0 15px;
+	}
 }
