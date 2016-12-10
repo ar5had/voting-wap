@@ -13,7 +13,8 @@ var PollSchema = new Schema({
 	authorId   : mongoose.Schema.Types.ObjectId,
 	secret     : String,
 	viewedIp   : Array,
-	votedIp    : Array
+	votedIp    : Array,
+	edited     : Boolean
 });
 
 module.exports = mongoose.model('Poll', PollSchema);

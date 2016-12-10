@@ -18,11 +18,12 @@ var addOptions = function(req, res, next) {
 				
 				poll.options = poll.options.concat(options);
 				poll.votes   = poll.votes.concat(options.map(function(elem){ return 0; }));
-				poll.colors =  randomColor({luminosity: 'light',count: poll.options.length});
-				console.log("Options", options, "poll.options", poll.options);
+				poll.colors  = randomColor({luminosity: 'light',count: poll.options.length});
+				poll.edited  = true;
 				poll.markModified('options');
 				poll.markModified('votes');
 				poll.markModified('colors');
+				poll.markModified('edited');
 				poll.save(function(err) {
 				    if (err) {
 				    	console.error('Some Error happened while Adding vote to the poll submitted by user!', err);

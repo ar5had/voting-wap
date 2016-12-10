@@ -13,6 +13,13 @@
 				<button class="viewsCount showBtn">
 					<%= poll.views %> views 
 				</button>
+				
+				<% if (poll.edited) { %>
+					<button class="showEdited showBtn">
+						Edited 
+					</button>
+				<% } %>
+				
 			</div>
 			<div class="pull-right">
 				<p class="author text-right"> 

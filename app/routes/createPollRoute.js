@@ -27,6 +27,7 @@ var addPoll = function (req, res, next) {
     poll.authorId              = req.user._id;
     poll.author                = req.user.name;
     poll.secret                = req.secret;
+    poll.edited                = false;
     poll.viewedIp              = [];
     poll.votedIp               = [];
 	poll.save(function (err) {
