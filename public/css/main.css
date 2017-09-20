@@ -6,10 +6,10 @@
 #hideAll{
    position: fixed;
    opacity: 1;
-   left: 0px; 
-   right: 0px; 
-   top: 0px; 
-   bottom: 0px; 
+   left: 0px;
+   right: 0px;
+   top: 0px;
+   bottom: 0px;
    background-color: #fefefe;
    z-index: 99;
    	-webkit-transition: opacity 100ms ease-in;
@@ -457,7 +457,7 @@ a {
 	color: #fff;
 	background: rgba(94, 169, 94, .5);
 	border: solid 1px rgba(94, 169, 94, 1);
-} 
+}
 
 .submitBtn {
 	margin-bottom: 20px;
@@ -522,10 +522,10 @@ select::-ms-expand {
   display: none;
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
 	::-moz-focus-inner {
 		border: none;
-	} 
+	}
 }
 
 option {
@@ -677,7 +677,7 @@ input {
 
 .sidebarWrapper {
 	position: absolute;
-	top: 65px; 
+	top: 65px;
 	left: 50%;
 	z-index: 999;
 	display: none;
@@ -690,7 +690,7 @@ input {
 }
 
 .sidebar {
-	max-width: 300px; 
+	max-width: 300px;
 	position: relative;
 	padding: 5px 0 !important;
 	border: solid 1px #dbe2e8;
@@ -787,7 +787,7 @@ input {
     max-width: 420px;
     width: 100%;
 	position: fixed;
-	top: 50%; 
+	top: 50%;
 	left: 50%;
 	z-index: 100000;
 	transform: translate(-50%, -50%);
@@ -856,11 +856,11 @@ input {
 	.vleft {
 		padding-right: 0;
 	}
-	
+
 	.vleft > .box {
 		margin-bottom: 20px;
 	}
-	
+
 	.vright {
 		padding-top: 0;
 		padding-left: 0;
@@ -871,101 +871,101 @@ input {
 	.sidebar {
 		max-width: none;
 		width: 100%;
-		box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
-		-moz-box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
-		-webkit-box-shadow: 0 .5em 1em 0 rgba(46,61,73,.3);
+		box-shadow: 0 .5em .5em 0 rgba(46,61,73,.3);
+		-moz-box-shadow: 0 .5em .5em 0 rgba(46,61,73,.3);
+		-webkit-box-shadow: 0 .5em .5em 0 rgba(46,61,73,.3);
 		border-right: none;
 		border-left: none;
 	}
-	
+
 	.sidebar::after, .sidebar::before {
 		display: none;
 	}
-	
+
 	.sidebarWrapper {
 		left: 0;
 		top: 70px;
 		width: 100%;
 		transform: none;
 	}
-	
+
 	.sLinks{
 		font-size: 16px;
 	}
-	
+
 }
 
 
 @media screen and (max-width: 450px) {
-	
+
 	h2 {
 		font-size: 22px;
 	}
-	
+
 	h3 {
 		font-size: 18px;
 	}
-	
+
 	.description, p {
 		font-size: 16px;
 	}
-	
+
 	.infoHeading::after {
 		bottom: 5px;
     	left: 90px;
 	}
-	
+
 	.question {
-		font-size: 20px; 
+		font-size: 20px;
 	}
-	
+
 	.author, .date, .authorName, .showBtn {
 		font-size: 11px;
 	}
-	
+
 	.footer > p, .footer a, .credit, .credit a {
 		font-size: 14px;
 	}
-	
+
 	.navIcons, #newIcon {
 		width: 20px;
 		padding: 0;
 	}
-	
+
 	#logo p, #logo span {
 		font-size: 20px;
 	}
-	
+
 	.sidebarWrapper {
 		left: 0;
 		top: 60px;
 	}
-	
+
 	.sLinks {
 		font-size: 14px;
 	}
-	
+
 	.boxWrapper, footer > .boxWrapper, .header, .pollContainer {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-	
+
 	.box {
 		padding: 15px;
 	}
-	
+
 	.showBtn {
 		padding: 6px 4px;
 	}
-	
+
 	.sLinks {
     	padding: 10px 15px !important;
 	}
-	
+
 	.borderWrapper {
     	padding: 0 15px;
 	}
-	
+
 	.pollInfoWrapper, .userControlsWrapper {
 		padding-right: 0;
 		padding-left: 0;
